@@ -14,7 +14,7 @@ namespace TotallyNotOLX.Models
         public string Name { get; set; }
         public string Description { get; set; }
         [Required]
-        public string Seller { get; set; }
+        public string SellerId { get; set; }
         [Required]
         public bool Sold { get; set; }
         [Required]
@@ -25,5 +25,6 @@ namespace TotallyNotOLX.Models
         public string Condition { get; set; }
         public string Notes { get; set; }
         public IEnumerable<ProductImage> Images { get; set; }
+        public ApplicationUser Seller { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace TotallyNotOLX.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasMany(c => c.Images).WithOne(e => e.Product);
+            modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Products).WithOne(e => e.Seller);
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Product> Products { get; set; }

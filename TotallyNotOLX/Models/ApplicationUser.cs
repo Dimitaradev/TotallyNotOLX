@@ -17,5 +17,6 @@ namespace TotallyNotOLX.Models
         [MaxLength(50)]
         public string LastName { get; set; }
         public string ProfileImage { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }
