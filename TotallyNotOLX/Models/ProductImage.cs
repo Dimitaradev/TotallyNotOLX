@@ -21,5 +21,6 @@ namespace TotallyNotOLX.Models
 
         public string Description { get; set; }
 
+        public Product Product { get; set; }
     }
 }

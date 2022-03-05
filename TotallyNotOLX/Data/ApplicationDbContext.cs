@@ -12,6 +12,14 @@ namespace TotallyNotOLX.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().HasMany(c => c.Images).WithOne(e => e.Product);
+            base.OnModelCreating(modelBuilder);
+        }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage> ProductsImages { get; set; }
     }
 }
