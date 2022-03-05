@@ -10,8 +10,8 @@ namespace TotallyNotOLX.Models
     public class ApplicationUsers_SavedProducts
     {
         [Key]
-        public int UserID { get; set; }
-        public ApplicationUser User { get; set; }
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [Key]
         public int ProductID { get; set; }

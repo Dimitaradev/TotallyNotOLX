@@ -18,5 +18,6 @@ namespace TotallyNotOLX.Models
         public string LastName { get; set; }
         public string ProfileImage { get; set; }
         public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<ApplicationUsers_SavedProducts> Saved { get; set; }
     }
 }
