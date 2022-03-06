@@ -1,0 +1,7 @@
+﻿@model List<Product>
+@foreach (var savedProduct in Model)
+{
+    <p><img src="@savedProduct.ProductImage" alt="Alternate Text" /></p>
+    <p>@savedProduct.Name</p>
+    <p>@savedProduct.Price</p>
+}

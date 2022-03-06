@@ -118,5 +118,32 @@ namespace TotallyNotOLX.Controllers
             product.Seller = _db.Users.Where(x=>x.Id==product.SellerId).FirstOrDefault();
             return View(product);
         }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddProductToSaved(int id)
+        {
+            Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
+            ApplicationUser user = _db.Users.Where(x => x.Id == product.SellerId).FirstOrDefault();
+            ApplicationUsers_SavedProducts connection = new ApplicationUsers_SavedProducts() {
+                ApplicationUser = user,
+                Product = product
+            };
+            _db.ApplicationUsers_SavedProducts.Add(connection);
+            _db.SaveChanges();
+            return RedirectToAction("details", new {id=id });
+        }
+
+        [HttpGet]
+        public IActionResult Saved()
+        {
+            var userSaved = _db.ApplicationUsers_SavedProducts
+            .Where(user_saved => user_saved.ApplicationUserId == _userManager
+            .FindByNameAsync(User.Identity.Name).Result.Id)
+            .Select(pair => pair.Product)
+            .ToList();
+            return View(userSaved);
+        }
     }
 }
