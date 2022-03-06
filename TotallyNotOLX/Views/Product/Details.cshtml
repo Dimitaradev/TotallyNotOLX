@@ -19,3 +19,9 @@ else
         <button type="submit" aria-label="Save product">Save</button>
     </form>
 }
+@if(Model.CreatedByUser)
+{
+     <form asp-controller="product" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+        <button type="submit" aria-label="Remove product">Remove product</button>
+    </form>
+}

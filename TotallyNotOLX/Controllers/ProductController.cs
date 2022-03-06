@@ -112,6 +112,25 @@ namespace TotallyNotOLX.Controllers
             
         }
 
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int? id)
+        {
+            var obj = _db.Products.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.Products.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+
         [HttpGet]
         public IActionResult Details(int id)
         {
@@ -126,7 +145,12 @@ namespace TotallyNotOLX.Controllers
                 {
                     product.SavedByUser = true;
                 }
+                if(_userManager.GetUserId(User) == product.Seller.Id)
+                {
+                    product.CreatedByUser = true;
+                }
             }
+
             return View(product);
         }
 
