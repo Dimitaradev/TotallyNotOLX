@@ -1,15 +1,22 @@
 ﻿@model IEnumerable<TotallyNotOLX.Models.Product>
 
+<div class="card-deck">
 @foreach(var item in Model)
 {
-    <div class="card" style="width: 18rem;">
+	
+ <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="@item.ProductImage" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">@item.Description</p>
+    <a asp-controller="product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">See full post</a>
+    <div class="card-footer">
+        <small class="text-muted">@item.DatePosted</small>
+    </div>
   </div>
 </div>
 }
+</div>
+
 
 
