@@ -1,0 +1,9 @@
+﻿@model ProductIndexViewModel
+@foreach(var product in Model.Products)
+{
+    <p>@product.Name @product.Description @product.DatePosted @product.Price @product.Notes @product.Condition</p>
+    @if (!string.IsNullOrEmpty(product.ProductImage))
+    {
+        <img src="@product.ProductImage" alt="Alternate Text" />
+    }
+}

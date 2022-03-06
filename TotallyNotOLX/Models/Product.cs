@@ -24,6 +24,7 @@ namespace TotallyNotOLX.Models
         public int Category { get; set; }
         public string Condition { get; set; }
         public string Notes { get; set; }
+        public string ProductImage { get; set; }
         public IEnumerable<ProductImage> Images { get; set; }
         public ApplicationUser Seller { get; set; }
         public IEnumerable<ApplicationUsers_SavedProducts> SavedBy { get; set; }
