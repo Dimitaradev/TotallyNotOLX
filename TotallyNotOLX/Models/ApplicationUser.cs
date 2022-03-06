@@ -19,5 +19,8 @@ namespace TotallyNotOLX.Models
         public string ProfileImage { get; set; }
         public IEnumerable<Product> Products { get; set; }
         public IEnumerable<ApplicationUsers_SavedProducts> Saved { get; set; }
+        public IEnumerable<Chat> Chats { get; set; }
+        public IEnumerable<Messages> Messages { get; set; }
+        public IEnumerable<Chat> ChatsSecondUser { get; set; }
     }
 }

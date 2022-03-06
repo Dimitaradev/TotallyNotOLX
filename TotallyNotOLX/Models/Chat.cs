@@ -12,13 +12,15 @@ namespace TotallyNotOLX.Models
         [Key]
         public int Id { get; set; }
 
-        public string FirstUserID { get; set; }
+        public string FirstUserId { get; set; }
         public ApplicationUser FirstUser { get; set; }
 
-        public string SecondUserID { get; set; }
+        public string SecondUserId { get; set; }
         public ApplicationUser SecondUser { get; set; }
 
         public int ProductID { get; set; }
         public Product Product { get; set; }
+
+        public IEnumerable<Messages> Messages { get;set; }
     }
 }

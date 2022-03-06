@@ -11,12 +11,13 @@ namespace TotallyNotOLX.Models
     {
         [Key]
         public int Id { get; set; }
-        public Chat ChatId { get; set; }
+        public int ChatId { get; set; }
 
         public string SenderID { get; set; }
         public ApplicationUser Sender { get; set; }
 
         public string MessageContent { get; set; }
         public string TimeSent { get; set; }
+        public Chat Chat { get; set; }
     }
 }
