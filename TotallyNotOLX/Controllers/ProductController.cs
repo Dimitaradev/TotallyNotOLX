@@ -117,6 +117,16 @@ namespace TotallyNotOLX.Controllers
         {
             Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
             product.Seller = _db.Users.Where(x=>x.Id==product.SellerId).FirstOrDefault();
+            product.SavedByUser = false;
+            if (User.Identity.IsAuthenticated)
+            {
+                if (_db.ApplicationUsers_SavedProducts
+                    .Where(x=>x.ApplicationUserId==_userManager.GetUserId(User)&&x.ProductID==id)
+                    .Any())
+                {
+                    product.SavedByUser = true;
+                }
+            }
             return View(product);
         }
 
@@ -135,7 +145,22 @@ namespace TotallyNotOLX.Controllers
             _db.SaveChanges();
             return RedirectToAction("details", new {id=id });
         }
-
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult RemoveProductFromSaved(int id)
+        {
+            Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
+            ApplicationUser user = _db.Users.Where(x => x.Id == product.SellerId).FirstOrDefault();
+            ApplicationUsers_SavedProducts connection = new ApplicationUsers_SavedProducts()
+            {
+                ApplicationUser = user,
+                Product = product
+            };
+            _db.ApplicationUsers_SavedProducts.Remove(connection);
+            _db.SaveChanges();
+            return RedirectToAction("details", new { id = id });
+        }
         [HttpGet]
         public IActionResult Saved()
         {

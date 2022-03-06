@@ -25,6 +25,8 @@ namespace TotallyNotOLX.Models
         public string Condition { get; set; }
         public string Notes { get; set; }
         public string ProductImage { get; set; }
+        [NotMapped]
+        public bool SavedByUser { get; set; }
         public IEnumerable<ProductImage> Images { get; set; }
         public ApplicationUser Seller { get; set; }
         public IEnumerable<ApplicationUsers_SavedProducts> SavedBy { get; set; }

@@ -6,6 +6,16 @@
 <p>@Model.Price</p>
 <p>@Model.Notes</p>
 <img src="@Model.ProductImage" alt="Alternate Text" />
-<form asp-controller="product" asp-action="AddProductToSaved" asp-route-id="@Model.Id" method="post">
-    <button type="submit" aria-label="Save product">Save</button>
-</form>
+
+@if (Model.SavedByUser)
+{
+    <form asp-controller="product" asp-action="RemoveProductFromSaved" asp-route-id="@Model.Id" method="post">
+        <button type="submit" aria-label="Remove product from saved">Remove from saved</button>
+    </form>
+}
+else
+{
+    <form asp-controller="product" asp-action="AddProductToSaved" asp-route-id="@Model.Id" method="post">
+        <button type="submit" aria-label="Save product">Save</button>
+    </form>
+}
