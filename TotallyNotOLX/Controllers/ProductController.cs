@@ -110,5 +110,13 @@ namespace TotallyNotOLX.Controllers
             }
             
         }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
+            product.Seller = _db.Users.Where(x=>x.Id==product.SellerId).FirstOrDefault();
+            return View(product);
+        }
     }
 }
