@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<TotallyNotOLX.Models.Product>
 
+    <h3>Latest Items</h3>
 <div class="card-deck">
 @foreach(var item in Model)
 {
-	
  <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="@item.ProductImage" alt="Card image cap">
   <div class="card-body">
