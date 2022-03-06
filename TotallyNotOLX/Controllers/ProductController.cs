@@ -95,7 +95,8 @@ namespace TotallyNotOLX.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Product product)
         {
-            product.DatePosted = DateTime.Today.ToShortTimeString();
+
+            product.DatePosted = DateTime.UtcNow.ToString("dd-MM-yyyy");
             product.SellerId = _userManager.GetUserId(User);
             product.Sold = false;
             try
