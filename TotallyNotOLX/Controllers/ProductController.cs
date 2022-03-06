@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,33 @@ namespace TotallyNotOLX.Controllers
                 SearchType = searchType
             };
             return View(data);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Product product)
+        {
+            product.DatePosted = DateTime.Today.ToShortTimeString();
+            product.SellerId = _userManager.GetUserId(User);
+            product.Sold = false;
+            try
+            {
+                _db.Products.Add(product);
+                _db.SaveChanges();
+                return RedirectToAction("index");
+            }
+            catch
+            {
+                return View(product);
+            }
+            
         }
     }
 }

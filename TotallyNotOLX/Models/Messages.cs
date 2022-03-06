@@ -13,7 +13,7 @@ namespace TotallyNotOLX.Models
         public int Id { get; set; }
         public int ChatId { get; set; }
 
-        public string SenderID { get; set; }
+        public string SenderId { get; set; }
         public ApplicationUser Sender { get; set; }
 
         public string MessageContent { get; set; }
