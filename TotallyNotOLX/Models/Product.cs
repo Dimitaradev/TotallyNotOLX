@@ -21,7 +21,7 @@ namespace TotallyNotOLX.Models
         public string DatePosted { get; set; }
         public decimal Price { get; set; }
         public bool PriceNegotiable { get; set; }
-        public int Category { get; set; }
+        public int CategoryId { get; set; }
         public string Condition { get; set; }
         public string Notes { get; set; }
         public string ProductImage { get; set; }
@@ -33,5 +33,6 @@ namespace TotallyNotOLX.Models
         public ApplicationUser Seller { get; set; }
         public IEnumerable<ApplicationUsers_SavedProducts> SavedBy { get; set; }
         public IEnumerable<Chat> Chats { get; set; }
+        public Category Category { get; set; }
     }
 }

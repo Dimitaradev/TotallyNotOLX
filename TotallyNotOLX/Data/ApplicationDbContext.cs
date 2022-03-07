@@ -66,6 +66,11 @@ namespace TotallyNotOLX.Data
                 .HasOne(c => c.Product)
                 .WithMany(e => e.Chats)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            //categories
+            modelBuilder.Entity<Category>()
+                .HasMany(category => category.Items)
+                .WithOne(item => item.Category);
             //base
             base.OnModelCreating(modelBuilder);
         }
@@ -74,5 +79,6 @@ namespace TotallyNotOLX.Data
         public DbSet<ApplicationUsers_SavedProducts> ApplicationUsers_SavedProducts { get; set; }
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Messages> Messages { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

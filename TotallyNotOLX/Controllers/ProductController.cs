@@ -7,7 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using TotallyNotOLX.Data;
 using TotallyNotOLX.Models;
-using TotallyNotOLX.StaticHelpers;
 using TotallyNotOLX.ViewModels.Products;
 namespace TotallyNotOLX.Controllers
 {
@@ -42,11 +41,11 @@ namespace TotallyNotOLX.Controllers
             }
 
             //chooses items of category x if given
-            if (!string.IsNullOrEmpty(category)) { 
-                products = products.Where(
-                    x => x.Category == Categories.CategoryNames.Where(
-                        x => x.Value == category)
-                    .First().Key)
+            if (!string.IsNullOrEmpty(category)) {
+                products = products
+                    .Where(product => product.CategoryId == _db.Categories
+                        .Where(cate => cate.Name == category)
+                    .FirstOrDefault().Id)
                     .ToList();
                 if (string.IsNullOrEmpty(searchType))
                 {
@@ -88,14 +87,16 @@ namespace TotallyNotOLX.Controllers
         [Authorize]
         public IActionResult Create()
         {
-            return View();
+            CreateProductViewModel createData = new CreateProductViewModel();
+            createData.Categories = _db.Categories.ToList();
+            return View(createData);
         }
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Product product)
+        public IActionResult Create(CreateProductViewModel productCreateData)
         {
-
+            var product = productCreateData.NewProduct;
             product.DatePosted = DateTime.UtcNow.ToString("dd-MM-yyyy");
             product.SellerId = _userManager.GetUserId(User);
             product.Sold = false;
@@ -107,7 +108,7 @@ namespace TotallyNotOLX.Controllers
             }
             catch
             {
-                return View(product);
+                return View(productCreateData);
             }
             
         }
