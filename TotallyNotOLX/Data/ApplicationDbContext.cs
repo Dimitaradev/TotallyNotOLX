@@ -20,7 +20,9 @@ namespace TotallyNotOLX.Data
             modelBuilder.Entity<Product>()
                 .HasMany(c => c.Images)
                 .WithOne(e => e.Product);
-
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
             //users
             modelBuilder.Entity<ApplicationUser>()
                 .HasMany(c => c.Products)
