@@ -41,7 +41,7 @@ namespace TotallyNotOLX
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RoleManager<IdentityRole> roleManager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RoleManager<IdentityRole> roleManager, ApplicationDbContext db)
         {
             if (env.IsDevelopment())
             {
@@ -65,7 +65,7 @@ namespace TotallyNotOLX
 
             //creates Moderator and Administrator roles if they dont exist in the database yet
             DataSeeder.SeedRoles(roleManager);
-
+            DataSeeder.SeedCategories(db);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
