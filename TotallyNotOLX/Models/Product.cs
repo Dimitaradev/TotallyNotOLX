@@ -32,7 +32,6 @@ namespace TotallyNotOLX.Models
         public IEnumerable<ProductImage> Images { get; set; }
         public ApplicationUser Seller { get; set; }
         public IEnumerable<ApplicationUsers_SavedProducts> SavedBy { get; set; }
-        public IEnumerable<Chat> Chats { get; set; }
         public Category Category { get; set; }
     }
 }

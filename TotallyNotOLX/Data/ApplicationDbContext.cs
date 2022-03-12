@@ -28,10 +28,6 @@ namespace TotallyNotOLX.Data
                 .HasMany(c => c.Products)
                 .WithOne(e => e.Seller);
 
-            modelBuilder.Entity<ApplicationUser>()
-                .HasMany(c => c.Messages)
-                .WithOne(e => e.Sender);
-
             //saved products
             modelBuilder.Entity<ApplicationUsers_SavedProducts>()
                 .HasKey(sp => new { sp.ApplicationUserId, sp.ProductID });
@@ -48,26 +44,6 @@ namespace TotallyNotOLX.Data
                 .HasForeignKey(productId => productId.ProductID)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            //chats
-            modelBuilder.Entity<Chat>()
-                .HasMany(c => c.Messages)
-                .WithOne(e => e.Chat)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Chat>()
-                .HasOne(c => c.FirstUser)
-                .WithMany(c => c.Chats)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Chat>()
-            .HasOne(c => c.SecondUser)
-            .WithMany(c => c.ChatsSecondUser)
-            .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Chat>()
-                .HasOne(c => c.Product)
-                .WithMany(e => e.Chats)
-                .OnDelete(DeleteBehavior.Restrict);
 
             //categories
             modelBuilder.Entity<Category>()
@@ -79,8 +55,6 @@ namespace TotallyNotOLX.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductsImages { get; set; }
         public DbSet<ApplicationUsers_SavedProducts> ApplicationUsers_SavedProducts { get; set; }
-        public DbSet<Chat> Chats { get; set; }
-        public DbSet<Messages> Messages { get; set; }
         public DbSet<Category> Categories { get; set; }
     }
 }
