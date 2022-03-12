@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TotallyNotOLX.Data;
 using TotallyNotOLX.Models;
+using TotallyNotOLX.StaticHelpers;
 
 namespace TotallyNotOLX
 {
@@ -34,12 +35,13 @@ namespace TotallyNotOLX
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -59,6 +61,9 @@ namespace TotallyNotOLX
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            //creates Moderator and Administrator roles if they dont exist in the database yet
+            DataSeeder.SeedRoles(roleManager);
 
             app.UseEndpoints(endpoints =>
             {
