@@ -4,7 +4,7 @@
     {
         public bool CheckProductAligibility(Product product)
         {
-            if (product.Name != null && product.SellerId != null &&&& product.DatePosted != null)
+            if (product.Name != null && product.SellerId != null && product.DatePosted != null)
 
                 return true;
             else
