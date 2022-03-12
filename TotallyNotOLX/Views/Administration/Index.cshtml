@@ -1,0 +1,51 @@
+﻿@model AdministrationControllerIndexViewModel
+<div class="container">
+    @if (Model.Users.Count > 0)
+    {
+        <form asp-action="DeleteUsers" method="post">
+            <h2>Delete users</h2>
+            @for (int i = 0; i < Model.Users.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model.Users[i].UserId" />
+                    <input type="hidden" asp-for="@Model.Users[i].UserName" />
+                    <input asp-for="@Model.Users[i].IsSelected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model.Users[i].IsSelected">
+                        @Model.Users[i].UserName
+                    </label>
+                </div>
+            }
+            <input type="submit" value="Update" />
+            <a asp-action="Index">Cancel</a>
+        </form>
+    }
+    else
+    {
+        <h2 class="text-danger">No users found</h2>
+    }
+    <hr />
+    @if (Model.Products.Count > 0)
+    {
+        <form asp-action="DeleteProducts" method="post">
+            <h2>Delete products</h2>
+            @for (int i = 0; i < Model.Products.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model.Products[i].ProductId" />
+                    <input type="hidden" asp-for="@Model.Products[i].ProductName" />
+                    <input asp-for="@Model.Products[i].IsSelected" class="form-check-input text-danger" />
+                    <label class="form-check-label" asp-for="@Model.Products[i].IsSelected">
+                        @Model.Products[i].ProductName
+                    </label>
+                </div>
+            }
+            <input type="submit" value="Update" />
+            <a asp-action="Index">Cancel</a>
+        </form>
+    }
+    else
+    {
+        <h2 class="text-danger">No products found</h2>
+    }
+
+</div>
