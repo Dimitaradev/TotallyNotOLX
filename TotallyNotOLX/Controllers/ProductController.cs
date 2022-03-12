@@ -42,7 +42,7 @@ namespace TotallyNotOLX.Controllers
             }
 
             //chooses items of category x if given
-            if (!string.IsNullOrEmpty(category)) {
+            if (!string.IsNullOrEmpty(category) && category != "all") {
                 products = products
                     .Where(product => product.CategoryId == _db.Categories
                         .Where(cate => cate.Name == category)
@@ -75,11 +75,19 @@ namespace TotallyNotOLX.Controllers
             //extract 1 to let the pages start from 1, not 0 at the UI
             products = products.Skip((pageNumber-1)*50).Take(50).ToList();
 
+            //adds categories for the searchbar
+            List<string> categories = new List<string>();
+            foreach (var categoryName in _db.Categories.ToList())
+            {
+                categories.Add(categoryName.Name);
+            }
+
             ProductIndexViewModel data = new ProductIndexViewModel()
             {
                 Products = products,
                 Page = pageNumber,
-                SearchType = searchType
+                SearchType = searchType,
+                Categories = categories
             };
             return View(data);
         }

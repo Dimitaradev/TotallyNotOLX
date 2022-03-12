@@ -8,6 +8,7 @@ namespace TotallyNotOLX.ViewModels.Products
     public class ProductIndexViewModel
     {
         public List<Product> Products { get; set; }
+        public List<string> Categories { get; set; }
         public string SearchType { get; set; }
         public int Page { get; set; }
     }
