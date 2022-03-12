@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TotallyNotOLX.Data;
 using TotallyNotOLX.Models;
+using TotallyNotOLX.ViewModels.Error;
 using TotallyNotOLX.ViewModels.Products;
 namespace TotallyNotOLX.Controllers
 {
@@ -133,15 +134,35 @@ namespace TotallyNotOLX.Controllers
 
 
         [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Details(int? id)
         {
-            Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
+            if (!id.HasValue)
+            {
+                NotFoundErrorViewModel errorData = new NotFoundErrorViewModel()
+                {
+                    ErrorMessage = "Enter valid item id",
+                    ReturnAction = "index",
+                    ReturnController = "product"
+                };
+                return RedirectToAction("notfound", "error", errorData);
+            }
+            Product product = _db.Products.Where(prod => prod.Id == id.Value).FirstOrDefault();
+            if (product==null)
+            {
+                NotFoundErrorViewModel errorData = new NotFoundErrorViewModel()
+                {
+                    ErrorMessage = $"Item with id {id.Value} could not be found",
+                    ReturnAction = "index",
+                    ReturnController = "product"
+                };
+                return RedirectToAction("notfound", "error", errorData);
+            }
             product.Seller = _db.Users.Where(x=>x.Id==product.SellerId).FirstOrDefault();
             product.SavedByUser = false;
             if (User.Identity.IsAuthenticated)
             {
                 if (_db.ApplicationUsers_SavedProducts
-                    .Where(x=>x.ApplicationUserId==_userManager.GetUserId(User)&&x.ProductID==id)
+                    .Where(x=>x.ApplicationUserId==_userManager.GetUserId(User)&&x.ProductID==id.Value)
                     .Any())
                 {
                     product.SavedByUser = true;

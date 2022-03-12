@@ -1,0 +1,4 @@
+﻿@model NotFoundErrorViewModel
+    <h2 class="text-danger">Item not found</h2>
+    <h3>@Model.ErrorMessage</h3>
+    <h3><a asp-controller="@Model.ReturnController" asp-action="@Model.ReturnAction">Back to all items</a></h3>
