@@ -1,1 +1,16 @@
 ﻿@import "../css/Utilities/_colors.scss";
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background: $secondaryColor-dark;
+}
+::-webkit-scrollbar-thumb {
+    background: $darkWhite;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $secondaryColor-light;
+}
+body, html{
+    overflow-x:hidden;
+}
