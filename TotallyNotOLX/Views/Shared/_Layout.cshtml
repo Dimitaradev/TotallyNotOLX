@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="@Url.Content("~/css/main.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/css/Shared/navigation.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/Shared/footer.css")" rel="stylesheet" type="text/css" />
     @RenderSection("heads", required: false)
 </head>
 <body>
@@ -19,11 +20,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - TotallyNotOLX - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <partial name="_FooterPartial" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

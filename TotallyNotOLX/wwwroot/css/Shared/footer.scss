@@ -1,0 +1,34 @@
+﻿@import "../Utilities/_colors.scss";
+footer {
+    background-color: $secondaryColor-light;
+    padding-top: 30px;
+
+    a {
+        color: $darkWhite;
+        display: block;
+        padding-left: 20px;
+    }
+    a:hover{
+       color:$mainColor;
+    }
+    .h5 {
+        padding-left: 0;
+    }
+
+    .copyright-container{
+        text-align:center;
+        color:$darkWhite;
+        background-color:$secondaryColor-dark;
+        margin-top:30px;
+        img{
+            margin:10px;
+            margin-bottom:0px;
+        }
+        a{
+            display:inline-block;
+            padding-left:0;
+            color:$mainColor;
+            font-weight:700;
+        }
+    }
+}

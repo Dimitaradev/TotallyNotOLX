@@ -1,0 +1,26 @@
+﻿<footer class="border-top footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <a asp-controller="product" asp-action="index" class="h5"><i class="fa-solid fa-magnifying-glass"></i> Discover</a>
+                <a asp-controller="product" asp-action="index" asp-route-category="Cars">Cars</a>
+                <a asp-controller="product" asp-action="index" asp-route-category="Sport">Sport equipment</a>
+                <a asp-controller="product" asp-action="index" asp-route-category="Technologies">Technologies</a>
+            </div>
+            <div class="col-lg-4">
+                <a asp-controller="home" asp-action="about" class="h5"><i class="fa-solid fa-circle-exclamation"></i> TotallyNotOLX</a>
+                <a asp-controller="home" asp-action="about">About</a>
+                <a asp-controller="home" asp-action="developers">Developers</a>
+                <a asp-controller="home" asp-action="documentation">Documentation</a>
+            </div>
+            <div class="col-lg-4">
+                <a asp-controller="home" asp-action="privacy" class="h5"><i class="fa-solid fa-shield"></i> Privacy policy</a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-container">
+        <div class="container">
+            Made in <a href="https://bg.wikipedia.org/wiki/%D0%A1%D0%BC%D0%BE%D0%BB%D1%8F%D0%BD" target="_blank">Smolyan</a> in 2022 <img src="~/img/TotallyNotOLX-logo.svg" alt="TotallyNotOLX" /> by Ivailo Chavdarov and Dimitar Radev
+        </div>
+    </div>
+</footer>
