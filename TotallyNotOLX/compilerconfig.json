@@ -10,5 +10,9 @@
   {
     "outputFile": "wwwroot/css/Home/homepage.css",
     "inputFile": "wwwroot/css/Home/homepage.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Shared/navigation.css",
+    "inputFile": "wwwroot/css/Shared/navigation.scss"
   }
 ]

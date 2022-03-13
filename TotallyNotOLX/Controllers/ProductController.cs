@@ -216,6 +216,7 @@ namespace TotallyNotOLX.Controllers
             return RedirectToAction("details", new { id = id });
         }
         [HttpGet]
+        [Authorize]
         public IActionResult Saved()
         {
             var userSaved = _db.ApplicationUsers_SavedProducts
