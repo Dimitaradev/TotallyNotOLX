@@ -1,0 +1,27 @@
+﻿.card-price {
+  padding: 15%;
+}
+
+.card-price, a {
+  display: inline;
+}
+
+option, select {
+  color: #F1D00A;
+  background-color: #21325E;
+  margin: 7px;
+}
+
+input, button {
+  color: #F1D00A;
+  background-color: #21325E;
+  margin: 7px;
+}
+
+select, input {
+  height: 30px;
+}
+
+::placeholder {
+  color: #F1D00A;
+}

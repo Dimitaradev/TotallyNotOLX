@@ -14,5 +14,9 @@
   {
     "outputFile": "wwwroot/css/Shared/footer.css",
     "inputFile": "wwwroot/css/Shared/footer.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Product/productpage.css",
+    "inputFile": "wwwroot/css/Product/productpage.scss"
   }
 ]

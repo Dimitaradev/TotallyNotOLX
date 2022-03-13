@@ -1,4 +1,5 @@
 ﻿@model ProductIndexViewModel
+  <link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
     <form asp-controller="product" asp-action="index" method="get">
         <select name="category">
             <option value="all">All</option>
@@ -11,11 +12,28 @@
         <input type="search" name="search" placeholder="Search" aria-label="Search">
         <button type="submit" aria-label="search"><i class="fas fa-search fa-sm"></i></button>
     </form>
-    @foreach (var product in Model.Products)
+<div class="row">
+    
+<div class="card-deck">
+    @foreach (var item in Model.Products)
     {
-        <p>@product.Name @product.Description @product.DatePosted @product.Price @product.Notes @product.Condition</p>
-        @if (!string.IsNullOrEmpty(product.ProductImage))
-        {
-            <img src="@product.ProductImage" alt="Alternate Text" />
-        }
+     <div class="col-sm-4">
+        <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="@item.ProductImage" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">@item.Description</p>
+                <a asp-controller="product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">See full post</a>
+                 <p class="card-price">@item.Price лв.</p>
+                <div class="card-footer">
+                    <small class="text-muted">@item.DatePosted</small>
+                </div>
+            </div>
+        </div>
+     </div>
     }
+    </div>
+
+</div>
+    
+   
