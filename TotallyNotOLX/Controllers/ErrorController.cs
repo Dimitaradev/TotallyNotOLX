@@ -39,9 +39,6 @@ namespace TotallyNotOLX.Controllers
         public IActionResult NotFound(NotFoundErrorViewModel errorData)
         {
             return View(errorData);
-        }
-        
-            //Item with id @Model.RequestedItemId could not found
-        
+        }     
     }
 }
