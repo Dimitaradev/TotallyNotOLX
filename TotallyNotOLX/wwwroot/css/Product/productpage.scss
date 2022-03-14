@@ -1,29 +1,78 @@
 ﻿@import "../Utilities/_colors.scss";
 
+
 .card-price{
     padding: 15%;
 }
 .card-price, a{
     display: inline;
-
 }
 
 option, select {
     color: $mainColor;
     background-color: $secondaryColor-dark;
     margin: 7px;
+    border-radius: 50px;
 }
 
-input, button {
+button {
     color: $mainColor;
     background-color: $secondaryColor-dark;
-    margin: 7px;
+    border-radius: 50px;
 }
 
-select, input {
+select{
     height: 30px;
 }
 ::placeholder {
     color: $mainColor;
+    background-color: $secondaryColor-dark;
 }
+
+input {
+    border-radius: 50px;
+    color: $mainColor;
+    background-color: $secondaryColor-dark;
+}
+
+.details {
+    margin: 7px;
+    position: relative;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 50%;
+    border: 20px solid $secondaryColor-dark;
+}
+.product-details {
+    padding: 7px;
+    border: 20px solid $secondaryColor-dark;
+    background-color: $mainColor;
+}
+.description{
+    text-align: left;
+}
+
+.seller, .data{
+    display: inline;
+}
+.data{
+    float: right;
+}
+.form-group {
+    color: $mainColor;
+}
+.form-control {
+    border-radius: 50px;
+}
+
+
+
+
+
 
