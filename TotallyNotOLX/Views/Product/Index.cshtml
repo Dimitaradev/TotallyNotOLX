@@ -33,7 +33,11 @@
      </div>
     }
 </div>
-
+    @if (Model.Page>1)
+    {
+        <a asp-route-category="@Model.CategoryChosen" asp-route-search="@Model.Searched" asp-route-page="@(Model.Page-1)"><i class="fa-solid fa-angles-left"></i> previous page</a>
+    }
+    <a asp-route-category="@Model.CategoryChosen" asp-route-search="@Model.Searched" asp-route-page="@(Model.Page+1)" class="ml-auto">next page <i class="fa-solid fa-angles-right"></i></a>
 </div>
     
    

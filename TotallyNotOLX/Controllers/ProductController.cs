@@ -87,7 +87,9 @@ namespace TotallyNotOLX.Controllers
                 Products = products,
                 Page = pageNumber,
                 SearchType = searchType,
-                Categories = categories
+                Categories = categories,
+                CategoryChosen = category,
+                Searched = search
             };
             return View(data);
         }

@@ -1,43 +1,35 @@
 ﻿.card-price {
-  padding: 15%;
-}
+  padding: 15%; }
 
 .card-price, a {
-  display: inline;
-}
+  display: inline; }
 
 option, select {
   color: #F1D00A;
   background-color: #21325E;
   margin: 7px;
-  border-radius: 50px;
-}
+  border-radius: 50px; }
 
 button {
   color: #F1D00A;
   background-color: #21325E;
-  border-radius: 50px;
-}
+  border-radius: 50px; }
 
 select {
-  height: 30px;
-}
+  height: 30px; }
 
 ::placeholder {
   color: #F1D00A;
-  background-color: #21325E;
-}
+  background-color: #21325E; }
 
 input {
   border-radius: 50px;
   color: #F1D00A;
-  background-color: #21325E;
-}
+  background-color: #21325E; }
 
 .details {
   margin: 7px;
-  position: relative;
-}
+  position: relative; }
 
 .center {
   display: block;
@@ -46,31 +38,24 @@ input {
   margin-bottom: 10px;
   margin-top: 10px;
   width: 50%;
-  border: 20px solid #21325E;
-}
+  border: 20px solid #21325E; }
 
 .product-details {
   padding: 7px;
   border: 20px solid #21325E;
-  background-color: #F1D00A;
-}
+  background-color: #F1D00A; }
 
 .description {
-  text-align: left;
-}
+  text-align: left; }
 
 .seller, .data {
-  display: inline;
-}
+  display: inline; }
 
 .data {
-  float: right;
-}
+  float: right; }
 
 .form-group {
-  color: #F1D00A;
-}
+  color: #F1D00A; }
 
 .form-control {
-  border-radius: 50px;
-}
+  border-radius: 50px; }

@@ -10,6 +10,8 @@ namespace TotallyNotOLX.ViewModels.Products
         public List<Product> Products { get; set; }
         public List<string> Categories { get; set; }
         public string SearchType { get; set; }
-        public int Page { get; set; }
+        public int? Page { get; set; }
+        public string CategoryChosen { get; set; }
+        public string Searched { get; set; }
     }
 }
