@@ -1,1 +1,16 @@
 ﻿@import "../Utilities/_colors.scss";
+.card {
+    height: 600px;
+    overflow: hidden;
+    margin:15px;
+    .card-img-top {
+        height:180px;
+        object-fit:contain;
+    }
+
+    .card-text {
+        height: 197px;
+        overflow: hidden;
+    }
+    border-color:$secondaryColor-light;
+}

@@ -14,3 +14,29 @@
 body, html{
     overflow-x:hidden;
 }
+.btn-primary{
+    background-color:$secondaryColor-dark;
+    border-color:$secondaryColor-light;
+    color:$darkWhite;
+}
+.btn-primary:hover {
+    background-color: $secondaryColor-light;
+    border-color: $secondaryColor-light;
+}
+.card {
+    height: 600px;
+    overflow: hidden;
+    margin: 15px;
+
+    .card-img-top {
+        height: 180px;
+        object-fit: contain;
+    }
+
+    .card-text {
+        height: 197px;
+        overflow: hidden;
+    }
+
+    border-color: $secondaryColor-light;
+}

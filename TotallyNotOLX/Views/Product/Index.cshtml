@@ -1,43 +1,44 @@
 ﻿@model ProductIndexViewModel
+@section heads{
   <link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
-    <form asp-controller="product" asp-action="index" method="get">
-        <select name="category">
-            <option value="all">All</option>
-            @foreach (var category in Model.Categories)
-            {
-                <option value="@category">@category</option>
-            }
+}
+  <div class="container">
+      <form asp-controller="product" asp-action="index" method="get">
+          <select name="category">
+              <option value="all">All</option>
+              @foreach (var category in Model.Categories)
+              {
+                  <option value="@category">@category</option>
+              }
 
-        </select>
-        <input type="search" name="search" placeholder="Search" aria-label="Search">
-        <button type="submit" aria-label="search"><i class="fas fa-search fa-sm"></i></button>
-    </form>
-<div class="row">
-    
-<div class="card-deck">
-    @foreach (var item in Model.Products)
-    {
-     <div class="col-sm-4">
-        <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="@item.ProductImage" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                <p class="card-text">@item.Description</p>
-                <a asp-controller="product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">See full post</a>
-                 <p class="card-price">@item.Price лв.</p>
-                <div class="card-footer">
-                    <small class="text-muted">@item.DatePosted</small>
-                </div>
-            </div>
-        </div>
-     </div>
-    }
-</div>
-    @if (Model.Page>1)
-    {
-        <a asp-route-category="@Model.CategoryChosen" asp-route-search="@Model.Searched" asp-route-page="@(Model.Page-1)"><i class="fa-solid fa-angles-left"></i> previous page</a>
-    }
-    <a asp-route-category="@Model.CategoryChosen" asp-route-search="@Model.Searched" asp-route-page="@(Model.Page+1)" class="ml-auto">next page <i class="fa-solid fa-angles-right"></i></a>
-</div>
-    
-   
+          </select>
+          <input type="search" name="search" placeholder="Search" aria-label="Search">
+          <button type="submit" aria-label="search"><i class="fas fa-search fa-sm"></i></button>
+      </form>
+      <div class="row">
+
+          <div class="card-deck">
+              @foreach (var product in Model.Products)
+              {
+                  <div class="col-lg-4 col-md-6 col-sm-12">
+                      <div class="card" style="width: 20rem;">
+                          <img class="card-img-top" src="@product.ProductImage" alt="Card image cap">
+                          <div class="card-body">
+                              <h5 class="card-title">@product.Name</h5>
+                              <p class="card-text">@product.Description</p>
+                              <small class="text-muted">Posted: @product.DatePosted</small>
+                              <p class="card-price">@product.Price leva</p>
+                              <a asp-controller="product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-block btn-primary">See full post</a>
+                          </div>
+                      </div>
+                  </div>
+              }
+          </div>
+          @if (Model.Page > 1)
+          {
+              <a asp-route-category="@Model.CategoryChosen" asp-route-search="@Model.Searched" asp-route-page="@(Model.Page-1)"><i class="fa-solid fa-angles-left"></i> previous page</a>
+          }
+          <a asp-route-category="@Model.CategoryChosen" asp-route-search="@Model.Searched" asp-route-page="@(Model.Page+1)" class="ml-auto">next page <i class="fa-solid fa-angles-right"></i></a>
+      </div>
+
+  </div>

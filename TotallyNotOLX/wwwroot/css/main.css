@@ -12,3 +12,24 @@
 
 body, html {
   overflow-x: hidden; }
+
+.btn-primary {
+  background-color: #21325E;
+  border-color: #3E497A;
+  color: #F0F0F0; }
+
+.btn-primary:hover {
+  background-color: #3E497A;
+  border-color: #3E497A; }
+
+.card {
+  height: 600px;
+  overflow: hidden;
+  margin: 15px;
+  border-color: #3E497A; }
+  .card .card-img-top {
+    height: 180px;
+    object-fit: contain; }
+  .card .card-text {
+    height: 197px;
+    overflow: hidden; }

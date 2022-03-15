@@ -2,23 +2,29 @@
 @section heads{
     <link href="@Url.Content("~/css/Home/homepage.css")" rel="stylesheet" type="text/css" />
 }
-<h3>Latest Items</h3>
-<div class="card-deck">
-    @foreach (var item in Model)
-    {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="@item.ProductImage" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                <p class="card-text">@item.Description</p>
-                <a asp-controller="product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">See full post</a>
-                <div class="card-footer">
-                    <small class="text-muted">@item.DatePosted</small>
+<section class="homepage-products">
+    <div class="container">
+    <h3>Latest items</h3>
+    <div class="card-deck">
+        @foreach (var product in Model)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="@product.ProductImage" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Description</p>
+                        <small class="text-muted">Posted: @product.DatePosted</small>
+                        <p class="card-price">@product.Price leva</p>
+                        <a asp-controller="product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-block btn-primary">See full post</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
+    </div>
+</section>
+
 
 
 

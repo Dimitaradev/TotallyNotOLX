@@ -1,52 +1,56 @@
 ﻿@model CreateProductViewModel
-<link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
-<form method="post" asp-action="Create">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group text-black">
-        <h3>Add product</h3>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewProduct.Name"></label>
-        <input asp-for="NewProduct.Name" class="form-control" />
-        <span asp-validation-for="NewProduct.Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewProduct.Description"></label>
-        <input asp-for="NewProduct.Description" class="form-control" />
-        <span asp-validation-for="NewProduct.Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewProduct.Price"></label>
-        <input asp-for="NewProduct.Price" class="form-control" />
-        <span asp-validation-for="NewProduct.Price" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewProduct.PriceNegotiable"></label>
-        <input asp-for="NewProduct.PriceNegotiable" class="form-control" />
-        <span asp-validation-for="NewProduct.PriceNegotiable" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewProduct.Condition"></label>
-        <input asp-for="NewProduct.Condition" class="form-control" />
-        <span asp-validation-for="NewProduct.Condition" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewProduct.Notes"></label>
-        <input asp-for="NewProduct.Notes" class="form-control" />
-        <span asp-validation-for="NewProduct.Notes" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <select asp-for="NewProduct.CategoryId">
-            @foreach (var category in Model.Categories)
-            {
-                <option value="@category.Id">@category.Name</option>
-            }
-        </select>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewProduct.ProductImage"></label>
-        <input asp-for="NewProduct.ProductImage" class="form-control" />
-        <span asp-validation-for="NewProduct.ProductImage" class="text-danger"></span>
-    </div>
-    <input type="submit" name="name" value="Sumbmit" />
-</form>    
+@section heads{
+    <link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
+}
+<div class="container">
+    <form method="post" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group text-black">
+            <h3>Add product</h3>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewProduct.Name"></label>
+            <input asp-for="NewProduct.Name" class="form-control" />
+            <span asp-validation-for="NewProduct.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewProduct.Description"></label>
+            <input asp-for="NewProduct.Description" class="form-control" />
+            <span asp-validation-for="NewProduct.Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewProduct.Price"></label>
+            <input asp-for="NewProduct.Price" class="form-control" />
+            <span asp-validation-for="NewProduct.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewProduct.PriceNegotiable"></label>
+            <input asp-for="NewProduct.PriceNegotiable" class="form-control" />
+            <span asp-validation-for="NewProduct.PriceNegotiable" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewProduct.Condition"></label>
+            <input asp-for="NewProduct.Condition" class="form-control" />
+            <span asp-validation-for="NewProduct.Condition" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewProduct.Notes"></label>
+            <input asp-for="NewProduct.Notes" class="form-control" />
+            <span asp-validation-for="NewProduct.Notes" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <select asp-for="NewProduct.CategoryId">
+                @foreach (var category in Model.Categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewProduct.ProductImage"></label>
+            <input asp-for="NewProduct.ProductImage" class="form-control" />
+            <span asp-validation-for="NewProduct.ProductImage" class="text-danger"></span>
+        </div>
+        <input type="submit" name="name" value="Sumbmit" />
+    </form>
+</div>

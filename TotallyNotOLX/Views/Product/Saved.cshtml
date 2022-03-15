@@ -1,20 +1,22 @@
 ﻿@model List<Product>
-<div class="card-deck">
-    @foreach (var savedProduct in Model)
-    {
-     <div class="col-sm-4">
-        <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="@savedProduct.ProductImage" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@savedProduct.Name</h5>
-                <p class="card-text">@savedProduct.Description</p>
-                <a asp-controller="product" asp-action="Details" asp-route-id="@savedProduct.Id" class="btn btn-primary">See full post</a>
-                 <p class="card-price">@savedProduct.Price лв.</p>
-                <div class="card-footer">
-                    <small class="text-muted">@savedProduct.DatePosted</small>
+<div class="container">
+    <div class="card-deck">
+        @foreach (var savedProduct in Model)
+        {
+            <div class="col-sm-4">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="@savedProduct.ProductImage" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@savedProduct.Name</h5>
+                        <p class="card-text">@savedProduct.Description</p>
+                        <a asp-controller="product" asp-action="Details" asp-route-id="@savedProduct.Id" class="btn btn-primary">See full post</a>
+                        <p class="card-price">@savedProduct.Price лв.</p>
+                        <div class="card-footer">
+                            <small class="text-muted">@savedProduct.DatePosted</small>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-     </div>
-    }
+        }
+    </div>
 </div>
