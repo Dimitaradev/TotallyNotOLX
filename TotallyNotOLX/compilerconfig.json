@@ -18,5 +18,9 @@
   {
     "outputFile": "wwwroot/css/Product/productpage.css",
     "inputFile": "wwwroot/css/Product/productpage.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Error/errorpage.css",
+    "inputFile": "wwwroot/css/Error/errorpage.scss"
   }
 ]
