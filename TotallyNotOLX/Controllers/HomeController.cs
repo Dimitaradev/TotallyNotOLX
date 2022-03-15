@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TotallyNotOLX.Data;
 using TotallyNotOLX.Models;
+using TotallyNotOLX.ViewModels.Home;
 
 namespace TotallyNotOLX.Controllers
 {
@@ -23,9 +24,10 @@ namespace TotallyNotOLX.Controllers
 
         public IActionResult Index()
         {
-            
-            List<Product> latestAds = _db.Products.ToList();
-            return View(latestAds.OrderByDescending(x => x.DatePosted).Take(15));
+            HomePageViewModel data = new HomePageViewModel();
+            data.Products = _db.Products.ToList().OrderByDescending(x => x.DatePosted).Take(15);
+            data.Categories = _db.Categories.ToList();
+            return View(data);
         }
 
         public IActionResult Privacy()
