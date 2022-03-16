@@ -148,6 +148,26 @@
   .categories-cards .category-card:hover {
     color: #F1D00A; }
 
+.homepage-products {
+  color: #21325E;
+  margin-top: 35px; }
+
+.homepage-popular {
+  background-color: #3E497A;
+  margin-top: 35px; }
+  .homepage-popular div {
+    padding: 30px;
+    padding-left: 65px;
+    font-size: 0; }
+  .homepage-popular h3 {
+    color: #F1D00A;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 30px; }
+  .homepage-popular a, .homepage-popular span {
+    color: #F0F0F0;
+    font-size: 22px; }
+
 .middle-borders {
   border-right: 1.5px solid #F1D00A;
   border-left: 1.5px solid #F1D00A; }

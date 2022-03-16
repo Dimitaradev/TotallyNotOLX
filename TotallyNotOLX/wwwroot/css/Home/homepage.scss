@@ -14,6 +14,7 @@
     }
     border-color:$secondaryColor-light;
 }
+
 .bg-image{
     position:absolute;
     width:100%;
@@ -22,6 +23,7 @@
     pointer-events:none;
     min-height:400px;
 }
+
 .section-title {
     max-width: 1920px;
     margin-left: auto;
@@ -31,6 +33,7 @@
     text-align: center;
     margin-top: 50px;
 }
+
 .home-header {
     height: 400px;
     h1 {
@@ -68,6 +71,7 @@
         border: 5px solid $secondaryColor-light;
     }
 }
+
 .services-card-container {
     padding:50px;
     margin-top:35px;
@@ -89,6 +93,7 @@
         }
     }
 }
+
 .search-form-container {
     height: 300px;
     text-align: center;
@@ -165,6 +170,7 @@
         }
     }
 }
+
 .categories-cards {
     max-width: 1920px;
     margin-top: 50px;
@@ -193,10 +199,40 @@
         color: $mainColor;
     }
 }
+
+.homepage-products{
+    color:$secondaryColor-dark;
+    margin-top:35px;
+}
+
+.homepage-popular {
+    background-color: $secondaryColor-light;
+    margin-top: 35px;
+
+    div {
+        padding: 30px;
+        padding-left:65px;
+        font-size: 0;
+    }
+
+    h3 {
+        color: $mainColor;
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 30px;
+    }
+
+    a, span {
+        color: $darkWhite;
+        font-size: 22px;
+    }
+}
+
 .middle-borders {
     border-right: 1.5px solid $mainColor;
     border-left: 1.5px solid $mainColor;
 }
+
 @media only screen and (max-width: 786px) {
     .home-header {
         h1, h2 {
@@ -221,6 +257,7 @@
         }
     }
 }
+
 @media only screen and (max-width: 991px){
     .middle-borders {
         border: 0;

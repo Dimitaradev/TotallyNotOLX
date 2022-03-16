@@ -84,6 +84,30 @@
         </div>
     </div>
 </section>
+<div class="homepage-popular row">
+    <div class="col-lg-6 col-12">
+        <h3>Categories: </h3>
+        @for (int i = 0; i < Model.Categories.Count(); i++)
+        {
+            <a asp-controller="product" asp-action="index" asp-route-category="@Model.Categories[i].Name">@Model.Categories[i].Name</a>
+            @if (i != Model.Categories.Count() - 1)
+            {
+                <span>, </span>
+            }
+        }
+    </div>
+    <div class="col-lg-6 col-12">
+        <h3>Popular searches: </h3>
+        @for (int i = 0; i < Model.PopularSearches.Count(); i++)
+        {
+            <a asp-controller="product" asp-action="index" asp-route-search="@Model.PopularSearches[i]">@Model.PopularSearches[i]</a>
+            @if (i != Model.PopularSearches.Count() - 1)
+            {
+                <span>, </span>
+            }
+        }
+    </div>
+</div>
 
 
 

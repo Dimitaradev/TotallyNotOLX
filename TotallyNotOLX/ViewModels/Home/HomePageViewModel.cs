@@ -8,8 +8,9 @@ namespace TotallyNotOLX.ViewModels.Home
 {
     public class HomePageViewModel
     {
-        public IEnumerable<Product> Products { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
+        public List<Product> Products { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<string> PopularSearches { get; set; }
         public int ProductsCount { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TotallyNotOLX.Data;
 using TotallyNotOLX.Models;
+using TotallyNotOLX.StaticHelpers;
 using TotallyNotOLX.ViewModels.Home;
 
 namespace TotallyNotOLX.Controllers
@@ -25,9 +26,10 @@ namespace TotallyNotOLX.Controllers
         public IActionResult Index()
         {
             HomePageViewModel data = new HomePageViewModel();
-            data.Products = _db.Products.ToList().OrderByDescending(x => x.DatePosted).Take(15);
+            data.Products = _db.Products.ToList().OrderByDescending(x => x.DatePosted).Take(15).ToList();
             data.ProductsCount = _db.Products.Count();
             data.Categories = _db.Categories.ToList();
+            data.PopularSearches = SearchesLogger.GetTopSearches(5);
             return View(data);
         }
 

@@ -8,12 +8,15 @@ namespace TotallyNotOLX.StaticHelpers
     public static class SearchesLogger
     {
         public static List<SearchCountPair> Searches { get; set; } = GetSearches();
+
         public static void Log(string searchName)
         {
             string search = searchName.ToLower();
             if (Searches.Where(x=>x.SearchName == search).Any())
             {
-                Searches.Where(x => x.SearchName == search).FirstOrDefault().SearchCount++;
+                Searches.Where(x => x.SearchName == search)
+                    .FirstOrDefault()
+                    .SearchCount++;
             }
             else
             {
@@ -26,6 +29,15 @@ namespace TotallyNotOLX.StaticHelpers
             string json = System.Text.Json.JsonSerializer.Serialize(Searches);
             File.WriteAllText(@$"./Data/searches.json", json);
         }
+
+        public static List<string> GetTopSearches(int topCount)
+        {
+            return Searches.OrderByDescending(x => x.SearchCount)
+                .Take(topCount)
+                .Select(x=>x.SearchName)
+                .ToList();
+        }
+
         private static List<SearchCountPair> GetSearches()
         {
             using (StreamReader r = new StreamReader(@"./Data/searches.json"))
@@ -37,7 +49,6 @@ namespace TotallyNotOLX.StaticHelpers
                 }
                 return JsonConvert.DeserializeObject<List<SearchCountPair>>(json);
             }
-
         }
     }
     public class SearchCountPair
