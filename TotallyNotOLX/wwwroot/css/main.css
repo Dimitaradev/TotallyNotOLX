@@ -33,3 +33,6 @@ body, html {
   .card .card-text {
     height: 197px;
     overflow: hidden; }
+
+main {
+  min-height: 650px; }

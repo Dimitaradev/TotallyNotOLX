@@ -14,9 +14,33 @@
         <a class="register-button" asp-area="identity" asp-page="/account/register">Register now</a>
     }
 </div>
+<div class="row services-card-container">
+    <div class="col-lg-4 col-12">
+        <div class="service">
+            <img src="~/img/Services/buy.png" class="service-card-img" />
+            <h3>Buy second hand products</h3>
+            <p>Choose one of <strong>@Model.ProductsCount</strong> <a asp-controller="product" asp-action="index">products</a> on TotallyNotOLX and contact the seller to buy it.</p>
+        </div>
+    </div>
+    <div class="col-lg-4 col-12 middle-borders">
+        <div class="service">
+            <img src="~/img/Services/sell.png"  class="service-card-img" />
+            <h3>Sell your old possessions</h3>
+            <p>Easily sell the item you no longer want/have use of by <a asp-controller="product" asp-action="create">adding</a> it and wait until someone contacts you to get it.</p>
+        </div>
+    </div>
+    <div class="col-lg-4 col-12">
+        <div class="service">
+            <img src="~/img/Services/save.png"  class="service-card-img" />
+            <h3>Save items for later</h3>
+            <p>From the page with product's details you can save the item in your <a asp-controller="product" asp-action="saved">favourites collection</a>.</p>
+        </div>
+    </div>
+</div>
 <div class="search-form-container">
     <form asp-controller="product" asp-action="index" method="get">
-        <input type="search" name="search" placeholder="Browse from @Model.ProductsCount products..." aria-label="Search">
+        <h2>Browse from <span class="big-number">@Model.ProductsCount</span> products in TotallyNotOLX</h2>
+        <input type="search" name="search" placeholder="Search..." aria-label="Search">
         <select name="category">
             <option value="all">All</option>
             @foreach (var category in Model.Categories)

@@ -22,6 +22,15 @@
     pointer-events:none;
     min-height:400px;
 }
+.section-title {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 35px;
+    color: $secondaryColor-dark;
+    text-align: center;
+    margin-top: 50px;
+}
 .home-header {
     height: 400px;
     h1 {
@@ -59,10 +68,31 @@
         border: 5px solid $secondaryColor-light;
     }
 }
+.services-card-container {
+    padding:50px;
+    margin-top:35px;
+    margin-bottom:35px;
+    .service {
+        color:$secondaryColor-dark;
+        padding:25px;
+        height:270px;
+        .service-card-img{
+            max-width:100px;
+            max-height:100px;
+        }
+        h3{
+            display:inline-block;
+            margin-left:20px;
+        }
+        p{
+            margin-top:25px;
+        }
+    }
+}
 .search-form-container {
-    height: 250px;
+    height: 300px;
     text-align: center;
-    background-color: #ACC400;
+    background-color: #889FA5;
     display: table;
     width: 100vw;
 
@@ -73,14 +103,14 @@
         margin-right: auto;
         vertical-align: middle;
 
-        * {
+        *:not(h2) {
             vertical-align: middle;
             height: 55px;
             margin: 0;
             font-size: large;
             border: 0;
             position: relative;
-            background-color: $darkWhite;
+            background-color: white;
             color: $secondaryColor-dark;
             border: 3px solid $mainColor;
 
@@ -100,11 +130,13 @@
             display: inline-block;
             padding-left: 20px;
             border-right: none;
+            max-width: 60vw;
         }
 
         select, button {
             padding: 10px;
             cursor: pointer;
+            max-width: 20vw;
         }
 
         select {
@@ -118,7 +150,18 @@
         }
 
         select:hover, button:hover, input:focus {
-            background-color: darken($darkWhite, 15);
+            background-color: $darkWhite;
+        }
+
+        h2 {
+            margin-bottom: 35px;
+            color: $darkWhite;
+        }
+
+        .big-number {
+            all: unset;
+            font-size: 55px;
+            font-weight: 700;
         }
     }
 }
@@ -150,6 +193,10 @@
         color: $mainColor;
     }
 }
+.middle-borders {
+    border-right: 1.5px solid $mainColor;
+    border-left: 1.5px solid $mainColor;
+}
 @media only screen and (max-width: 786px) {
     .home-header {
         h1, h2 {
@@ -159,6 +206,14 @@
             font-size:x-large
         }
     }
+    .search-form-container{
+        form{
+            button{
+               font-size:0px;
+               max-width:15vw;
+            }
+        }
+    }
     .categories-cards {
         padding: 0;
         .category-card{
@@ -166,12 +221,10 @@
         }
     }
 }
-.section-title {
-    max-width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-left:35px;
-    color:$secondaryColor-dark;
-    text-align:center;
-    margin-top:50px;
+@media only screen and (max-width: 991px){
+    .middle-borders {
+        border: 0;
+        border-top: 1.5px solid $mainColor;
+        border-bottom: 1.5px solid $mainColor;
+    }
 }
