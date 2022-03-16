@@ -10,6 +10,10 @@ namespace TotallyNotOLX.Controllers
     public class ErrorController:Controller
     {
         [Route("error/{statusCode}")]
+        ///<summary>
+        ///This method is used to descripe the most commmon types of errors that can appear.
+        /// </summary>
+        /// <param name="statusCode"> This is the number of the error.</param>
         public IActionResult StatusCodeError(int statusCode)
         {
             StatusCodeErrorViewModel error = new StatusCodeErrorViewModel();
@@ -36,6 +40,9 @@ namespace TotallyNotOLX.Controllers
             return View(error);
         }
         [Route("error/notfound")]
+        ///<summary>
+        ///This method returns message that the serached product cannot be found.
+        /// </summary>
         public IActionResult NotFound(NotFoundErrorViewModel errorData)
         {
             return View(errorData);
