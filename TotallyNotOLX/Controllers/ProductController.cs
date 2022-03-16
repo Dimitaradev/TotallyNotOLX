@@ -22,6 +22,12 @@ namespace TotallyNotOLX.Controllers
             _db = db;
         }
         [HttpGet]
+        /// <summary>
+        /// The Index method descripes what will be done with our index page of the website.
+        /// </summary>
+        /// <param name="category">the name of the category</param>
+        /// <param name="page">The number of the page your are on</param>
+        /// <param name="search">The input from the search box</param>
         public IActionResult Index(int? page, string search, string category)
         {
             int pageNumber;
@@ -96,6 +102,9 @@ namespace TotallyNotOLX.Controllers
 
         [HttpGet]
         [Authorize]
+        ///<summary>
+        ///Calls the Create method with ViewModel.
+        /// </summary>
         public IActionResult Create()
         {
             CreateProductViewModel createData = new CreateProductViewModel();
@@ -105,6 +114,9 @@ namespace TotallyNotOLX.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
+        ///<summary>
+        ///Uses the data from the ViewModel to create new product.
+        ///</summary>
         public IActionResult Create(CreateProductViewModel productCreateData)
         {
             var product = productCreateData.NewProduct;
@@ -128,6 +140,10 @@ namespace TotallyNotOLX.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
+        ///<summary>
+        ///This method is used to delete product with specific id
+        /// </summary>
+        /// <param name="id">id of the product that will be deleted</param>
         public IActionResult Delete(int? id)
         {
             var obj = _db.Products.Find(id);
@@ -144,6 +160,10 @@ namespace TotallyNotOLX.Controllers
 
 
         [HttpGet]
+        ///<summary>
+        ///This method returns every information for product with cpecific id. 
+        /// </summary>
+        /// <param name="id">The id of the product for which we will display information</param>
         public IActionResult Details(int? id)
         {
             if (!id.HasValue)
@@ -189,6 +209,10 @@ namespace TotallyNotOLX.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
+        ///<summary>
+        ///This method add a product with specific id to the leist of products saved by us.
+        /// </summary>
+        /// <param name="id">The id of the product which we will save</param>
         public IActionResult AddProductToSaved(int id)
         {
             Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
@@ -204,6 +228,10 @@ namespace TotallyNotOLX.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
+        ///<summary>
+        ///This method will remove certain prduct from our list of saved products.
+        /// </summary>
+        /// <param name="id"> The id of the product which we will removed from saved</param>
         public IActionResult RemoveProductFromSaved(int id)
         {
             Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
@@ -219,6 +247,9 @@ namespace TotallyNotOLX.Controllers
         }
         [HttpGet]
         [Authorize]
+        ///<summary>
+        ///This method will return the list of products that we have saved.
+        /// </summary>
         public IActionResult Saved()
         {
             var userSaved = _db.ApplicationUsers_SavedProducts
