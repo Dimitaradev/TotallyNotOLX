@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TotallyNotOLX.Data;
 using TotallyNotOLX.Models;
+using TotallyNotOLX.StaticHelpers;
 using TotallyNotOLX.ViewModels.Error;
 using TotallyNotOLX.ViewModels.Products;
 namespace TotallyNotOLX.Controllers
@@ -40,6 +41,7 @@ namespace TotallyNotOLX.Controllers
             }
             else
             {
+                SearchesLogger.Log(search);
                 products = _db.Products.Where(
                     product => product.Name.ToLower().Contains(search.ToLower()) ||
                     product.Description.ToLower().Contains(search.ToLower()))
