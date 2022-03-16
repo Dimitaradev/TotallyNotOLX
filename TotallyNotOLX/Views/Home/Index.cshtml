@@ -14,12 +14,25 @@
         <a class="register-button" asp-area="identity" asp-page="/account/register">Register now</a>
     }
 </div>
-<h2 class="section-title">Categories</h2>
+<div class="search-form-container">
+    <form asp-controller="product" asp-action="index" method="get">
+        <input type="search" name="search" placeholder="Browse from @Model.ProductsCount products..." aria-label="Search">
+        <select name="category">
+            <option value="all">All</option>
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.Name">@category.Name</option>
+            }
+        </select>
+        <button type="submit" aria-label="search">Search <i class="fas fa-search fa-sm"></i></button>
+    </form>
+</div>
+<h2 class="section-title">Main product categories</h2>
 <div class="categories-cards row">
-    
+
     @foreach (var category in Model.Categories)
     {
-        <a asp-controller="product" asp-action="index" asp-route-category="@category.Name" class="col-lg-1 col-md-4 col-6 category-card">
+        <a asp-controller="product" asp-action="index" asp-route-category="@category.Name" class="col-lg-2 col-md-4 col-6 category-card">
             <img src="~/img/Categories/@(category.Name).png" alt="@category.Name" />
             <h5>@category.Name</h5>
         </a>
