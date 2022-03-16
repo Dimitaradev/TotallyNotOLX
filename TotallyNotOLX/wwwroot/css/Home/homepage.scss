@@ -24,8 +24,6 @@
 }
 .home-header {
     height: 400px;
-    margin-bottom: 25px;
-
     h1 {
         position: relative;
         color: $secondaryColor-dark;
@@ -61,25 +59,95 @@
         border: 5px solid $secondaryColor-light;
     }
 }
+.search-form-container {
+    height: 250px;
+    text-align: center;
+    background-color: #ACC400;
+    display: table;
+    width: 100vw;
+
+    form {
+        font-size: 0px;
+        display: table-cell;
+        margin-left: auto;
+        margin-right: auto;
+        vertical-align: middle;
+
+        * {
+            vertical-align: middle;
+            height: 55px;
+            margin: 0;
+            font-size: large;
+            border: 0;
+            position: relative;
+            background-color: $darkWhite;
+            color: $secondaryColor-dark;
+            border: 3px solid $mainColor;
+
+            i {
+                height: 0;
+                vertical-align: middle;
+                border: none;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        input[type="search"] {
+            width: 470px;
+            display: inline-block;
+            padding-left: 20px;
+            border-right: none;
+        }
+
+        select, button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        select {
+            border-left: none;
+            border-right: none;
+        }
+
+        button {
+            border-left: none;
+            width: 120px;
+        }
+
+        select:hover, button:hover, input:focus {
+            background-color: darken($darkWhite, 15);
+        }
+    }
+}
 .categories-cards {
-    max-width:1920px;
-    margin-left:auto;
-    margin-right:auto;
+    max-width: 1920px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10vw;
+    padding-right: 10vw;
+
     .category-card {
-        text-align:center;
-        color:$secondaryColor-light;
-        margin:15px;
+        text-align: center;
+        color: $secondaryColor-light;
+        margin: 15px;
+
         img {
             height: 125px;
             width: 125px;
         }
-        h5{
-            margin-top:7px;
-            font-size:x-large;
+
+        h5 {
+            margin-top: 7px;
+            font-size: x-large;
         }
     }
-    .category-card:hover{
-        color:$mainColor;
+
+    .category-card:hover {
+        color: $mainColor;
     }
 }
 @media only screen and (max-width: 786px) {
@@ -91,6 +159,12 @@
             font-size:x-large
         }
     }
+    .categories-cards {
+        padding: 0;
+        .category-card{
+            margin:0;
+        }
+    }
 }
 .section-title {
     max-width: 1920px;
@@ -98,4 +172,6 @@
     margin-right: auto;
     margin-left:35px;
     color:$secondaryColor-dark;
+    text-align:center;
+    margin-top:50px;
 }

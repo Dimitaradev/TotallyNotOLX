@@ -26,6 +26,7 @@ namespace TotallyNotOLX.Controllers
         {
             HomePageViewModel data = new HomePageViewModel();
             data.Products = _db.Products.ToList().OrderByDescending(x => x.DatePosted).Take(15);
+            data.ProductsCount = _db.Products.Count();
             data.Categories = _db.Categories.ToList();
             return View(data);
         }
