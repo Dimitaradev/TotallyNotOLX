@@ -2,8 +2,8 @@
 @section heads{
     <link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
 }
-<div class="container">
-    <form method="post" asp-action="Create">
+<div class="container mb-3 mt-3">
+    <form method="post" asp-action="Create" id="createProductForm">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group text-black">
             <h3>Add product</h3>
@@ -48,9 +48,22 @@
         </div>
         <div class="form-group">
             <label asp-for="NewProduct.ProductImage"></label>
-            <input asp-for="NewProduct.ProductImage" class="form-control" />
+            <input asp-for="NewProduct.ProductImage" class="form-control" id="profileImageInputHidden" placeholder="Image URL" />
             <span asp-validation-for="NewProduct.ProductImage" class="text-danger"></span>
         </div>
-        <input type="submit" name="name" value="Sumbmit" />
+        <div class="form-group image-upload-input">
+            <span> or </span>
+            <label for="fileupload" class="custom-file-upload">
+                <i class="fas fa-cloud-upload-alt"></i> Upload image
+            </label>
+            <input class="form-control" type="file" id="fileupload" hidden />
+            <span id="imageValidationText" class="text-danger"></span>
+        </div>
+        <button class="btn btn-success" id="fakeSubmitButton">Create</button>
+        <button class="NoLoader btn btn-danger" onclick="clearFormInputs('createProductForm')" type="button" id="clearFormButton">Clear</button>
+        <button type="submit" id="submitButtonHidden" style="visibility:hidden">Create product hidden</button>
     </form>
 </div>
+@section Scripts{ 
+    <script src="~/js/cloudinaryUpload.js"></script>
+}
