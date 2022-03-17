@@ -6,6 +6,9 @@ namespace TotallyNotOLX.Models
 {
     public class Product
     {
+        /// <summary>
+        /// The properties of our Products table from our database. 
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
