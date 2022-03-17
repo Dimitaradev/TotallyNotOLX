@@ -22,5 +22,9 @@
   {
     "outputFile": "wwwroot/css/Error/errorpage.css",
     "inputFile": "wwwroot/css/Error/errorpage.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Identity/signForm.css",
+    "inputFile": "wwwroot/css/Identity/signForm.scss"
   }
 ]

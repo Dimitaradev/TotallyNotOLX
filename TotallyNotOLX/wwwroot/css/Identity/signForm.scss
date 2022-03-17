@@ -1,0 +1,95 @@
+﻿@import "../Utilities/_colors.scss";
+.sign-form-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: $secondaryColor-dark;
+    color: $darkWhite;
+
+    a {
+        color: $mainColor;
+    }
+
+    .btn-primary {
+        color: $mainColor;
+        border: 2px solid $mainColor;
+    }
+
+    hr {
+        margin-top: 20px;
+        border-color: $darkWhite;
+        border-width: 1.5px;
+        opacity: 0.5;
+    }
+
+    form {
+        label {
+            font-size: larger;
+        }
+
+        input {
+            background-color: transparent;
+            border: 1px solid $mainColor;
+            color: $darkWhite;
+        }
+        #registerButton, #clearFormButton{
+            width:49%;
+            font-size:larger;
+            font-weight:700;
+            min-width:200px;
+        }
+    }
+
+    .image-upload-input {
+        input[type="file"] {
+            border: none;
+            padding-left: 0px;
+        }
+        label{
+            cursor:pointer;
+        }
+        i{
+            color:$mainColor;
+        }
+    }
+
+    .checkbox {
+
+        input[type="checkbox"] {
+            height: 0px;
+            width: 0px;
+        }
+
+        label {
+            position: relative;
+        }
+
+        label:before {
+            border: 2px solid $mainColor;
+            background-color: $darkWhite;
+            content: '';
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            position: relative;
+            z-index: 0;
+        }
+
+        input[type="checkbox"]:checked:before {
+            position: absolute;
+            border: 2px solid $mainColor;
+            background-color: $mainColor;
+            color: $secondaryColor-dark;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f00c";
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+﻿.sign-form-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 30px;
+  background-color: #21325E;
+  color: #F0F0F0; }
+  .sign-form-container a {
+    color: #F1D00A; }
+  .sign-form-container .btn-primary {
+    color: #F1D00A;
+    border: 2px solid #F1D00A; }
+  .sign-form-container hr {
+    margin-top: 20px;
+    border-color: #F0F0F0;
+    border-width: 1.5px;
+    opacity: 0.5; }
+  .sign-form-container form label {
+    font-size: larger; }
+  .sign-form-container form input {
+    background-color: transparent;
+    border: 1px solid #F1D00A;
+    color: #F0F0F0; }
+  .sign-form-container form #registerButton, .sign-form-container form #clearFormButton {
+    width: 49%;
+    font-size: larger;
+    font-weight: 700;
+    min-width: 200px; }
+  .sign-form-container .image-upload-input input[type="file"] {
+    border: none;
+    padding-left: 0px; }
+  .sign-form-container .image-upload-input label {
+    cursor: pointer; }
+  .sign-form-container .image-upload-input i {
+    color: #F1D00A; }
+  .sign-form-container .checkbox input[type="checkbox"] {
+    height: 0px;
+    width: 0px; }
+  .sign-form-container .checkbox label {
+    position: relative; }
+  .sign-form-container .checkbox label:before {
+    border: 2px solid #F1D00A;
+    background-color: #F0F0F0;
+    content: '';
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: relative;
+    z-index: 0; }
+  .sign-form-container .checkbox input[type="checkbox"]:checked:before {
+    position: absolute;
+    border: 2px solid #F1D00A;
+    background-color: #F1D00A;
+    color: #21325E;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    z-index: 1; }

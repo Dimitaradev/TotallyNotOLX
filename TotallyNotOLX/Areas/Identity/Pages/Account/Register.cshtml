@@ -1,13 +1,16 @@
 ﻿@page
+@section heads{
+    <link href="@Url.Content("~/css/Identity/signForm.css")" rel="stylesheet" type="text/css" />
+}
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
 }
-<div class="container">
+<div class="container sign-form-container">
     <h1>@ViewData["Title"]</h1>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-7 col-12">
             <form asp-route-returnUrl="@Model.ReturnUrl" id="registerForm" method="post">
                 <h4>Create a new account.</h4>
                 <hr />
@@ -32,12 +35,12 @@
                     <input asp-for="Input.ProfileImage" class="form-control" id="profileImageInputHidden" placeholder="Image URL" />
                     <span asp-validation-for="Input.ProfileImage" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group image-upload-input">
                     <span> or </span>
                     <label for="fileupload" class="custom-file-upload">
                         <i class="fas fa-cloud-upload-alt"></i> Upload image
                     </label>
-                    <input class="form-control" type="file" id="fileupload" />
+                    <input class="form-control" type="file" id="fileupload" hidden/>
                     <span id="imageValidationText" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -51,38 +54,18 @@
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <button class="btn btn-success" id="registerButton">Register</button>
-                <button class="NoLoader btn btn-danger" onclick="clearFormInputs('registerForm')" type="button">Reset</button>
+                <button class="NoLoader btn btn-danger" onclick="clearFormInputs('registerForm')" type="button" id="clearFormButton">Reset</button>
                 <button type="submit" id="submitButtonHidden" style="visibility:hidden">Register hidden</button>
             </form>
         </div>
-        <div class="col-md-6 col-md-offset-2">
+        <div class="col-12 col-md-5">
             <section>
-                <h4>Use another service to register.</h4>
+                <h4>More</h4>
                 <hr />
-                @{
-                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                    {
-                        <div>
-                            <p>
-                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                                for details on setting up this ASP.NET application to support logging in via external services.
-                            </p>
-                        </div>
-                    }
-                    else
-                    {
-                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                            <div>
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
-                                    {
-                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                    }
-                                </p>
-                            </div>
-                        </form>
-                    }
-                }
+                <p>By registering you agree to our <a asp-controller="home" asp-action="privacy">privacy policy</a></p>
+                <p>Already have an account? Click <a asp-area="identity" asp-page="/account/login">here</a> to sign in</p>
+                <br />
+                <p><a asp-controller="home" asp-action="index">Back to home page</a></p>
             </section>
         </div>
     </div>
