@@ -23,6 +23,9 @@ namespace TotallyNotOLX.Controllers
             _db = db;
         }
 
+        /// <summary>
+        /// Direxts us to the home page of the website where we can see the latest products.
+        /// </summary>
         public IActionResult Index()
         {
             HomePageViewModel data = new HomePageViewModel();
@@ -33,21 +36,33 @@ namespace TotallyNotOLX.Controllers
             return View(data);
         }
 
+        /// <summary>
+        /// Redirects us to the privacy page of our website.
+        /// </summary>
         public IActionResult Privacy()
         {
             return View();
         }
 
+        /// <summary>
+        /// Redirects us to the About page of our website.
+        /// </summary>
         public IActionResult About()
         {
             return View();
         }
+
+        /// <summary>
+        /// Redirects us to the Developers page of our website.
+        /// </summary>
         public IActionResult Developers()
         {
             return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

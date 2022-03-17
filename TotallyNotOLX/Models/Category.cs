@@ -9,6 +9,9 @@ namespace TotallyNotOLX.Models
 {
     public class Category
     {
+        /// <summary>
+        /// The properties of the category table from our database.
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

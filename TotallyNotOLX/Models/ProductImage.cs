@@ -9,6 +9,9 @@ namespace TotallyNotOLX.Models
 {
     public class ProductImage
     {
+        /// <summary>
+        /// The properties of ProductImage table of our database.
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

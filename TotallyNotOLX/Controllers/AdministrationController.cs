@@ -23,6 +23,10 @@ namespace TotallyNotOLX.Controllers
             _db = db;
         }
         [HttpGet]
+
+        ///<summary>
+        ///Adds users and products which later we can delete.
+        /// </summary>
         public async Task<IActionResult> Index()
         {
             AdministrationControllerIndexViewModel data = new AdministrationControllerIndexViewModel();
@@ -57,6 +61,9 @@ namespace TotallyNotOLX.Controllers
         }
         [HttpGet]
         [Authorize(Roles = "Administrator")]
+        ///<summary>
+        ///Functionality through which you can add moderators to the website.
+        /// </summary>
         public async Task<IActionResult> ManageModerators()
         {
             ManageModeratorsViewModel data = new ManageModeratorsViewModel();
@@ -85,6 +92,9 @@ namespace TotallyNotOLX.Controllers
         }
 
         [HttpPost]
+        ///<summary>
+        ///Functionality through which you can delete users from the database and the website.
+        /// </summary>
         public async Task<IActionResult> DeleteUsers(AdministrationControllerIndexViewModel model)
         {
             if (ModelState.IsValid)
@@ -106,6 +116,9 @@ namespace TotallyNotOLX.Controllers
         }
 
         [HttpPost]
+        ///<summary>
+        ///Functionality through which you can delete products from the database and the website.
+        /// </summary>
         public IActionResult DeleteProducts(AdministrationControllerIndexViewModel model)
         {
             if (ModelState.IsValid)
@@ -129,6 +142,9 @@ namespace TotallyNotOLX.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Administrator")]
+        ///<summary>
+        ///Functionality through which you can control the moderators of the website.
+        /// </summary>
         public async Task<IActionResult> ManageModerators(ManageModeratorsViewModel model)
         {
             for (int i = 0; i < model.Users.Count; i++)

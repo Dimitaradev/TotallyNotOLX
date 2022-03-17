@@ -9,6 +9,9 @@ namespace TotallyNotOLX.Models
 {
     public class ApplicationUsers_SavedProducts
     {
+        /// <summary>
+        /// The properties of the ApplicationUsers_SavedProducts table from our database.
+        /// </summary>
         [Key]
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
