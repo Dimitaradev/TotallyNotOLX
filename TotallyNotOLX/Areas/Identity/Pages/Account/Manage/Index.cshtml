@@ -7,24 +7,76 @@
 
 <h4>@ViewData["Title"]</h4>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
-<div class="row">
-    <div class="col-md-6">
-        <form id="profile-form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username"></label>
-                <input asp-for="Username" class="form-control" disabled />
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
-                <input asp-for="Input.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
-        </form>
-    </div>
+<div class="profile-image-container">
+    @if (!string.IsNullOrEmpty(Model.ProfileImage))
+    {
+        <img src="@Model.ProfileImage" alt="@Model.Username" />
+    }
+    else
+    {
+        <img src="~/img/user.png" alt="@Model.Username" />
+    }
+    <p>@Model.FirstName @Model.LastName</p>
 </div>
+<form id="profile-form" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" disabled />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.PhoneNumber"></label>
+        <input asp-for="Input.PhoneNumber" class="form-control" />
+        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.FirstName"></label>
+        <input asp-for="Input.FirstName" class="form-control" />
+        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.LastName"></label>
+        <input asp-for="Input.LastName" class="form-control" />
+        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.ProfileImage"></label>
+        <input asp-for="Input.ProfileImage" class="form-control" id="profileImageInputHidden" placeholder="Image URL" />
+        <span asp-validation-for="Input.ProfileImage" class="text-danger"></span>
+    </div>
+    <div class="form-group image-upload-input">
+        <span> or </span>
+        <label for="fileupload" class="custom-file-upload">
+            <i class="fas fa-cloud-upload-alt"></i> Upload image
+        </label>
+        <input class="form-control" type="file" id="fileupload" hidden />
+        <span id="imageValidationText" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Instagram"></label>
+        <input asp-for="Input.Instagram" class="form-control" />
+        <span asp-validation-for="Input.Instagram" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Facebook"></label>
+        <input asp-for="Input.Facebook" class="form-control" />
+        <span asp-validation-for="Input.Facebook" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Discord"></label>
+        <input asp-for="Input.Discord" class="form-control" />
+        <span asp-validation-for="Input.Discord" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Twitter"></label>
+        <input asp-for="Input.Twitter" class="form-control" />
+        <span asp-validation-for="Input.Twitter" class="text-danger"></span>
+    </div>
+    <input type="button" class="btn btn-primary btn-block" name="name" value="Save" id="fakeSubmitButton" />
+    <button id="submitButtonHidden" type="submit" hidden>Save hidden</button>
+</form>
 
 @section Scripts {
+    <script src="~/js/cloudinaryUpload.js"></script>
     <partial name="_ValidationScriptsPartial" />
 }

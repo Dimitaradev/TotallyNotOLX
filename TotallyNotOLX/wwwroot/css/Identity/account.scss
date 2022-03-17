@@ -1,0 +1,61 @@
+﻿@import "../Utilities/_colors.scss";
+#account-sideNav {
+    .nav-pills {
+        .nav-link.active {
+            background-color: $secondaryColor-light;
+            color: $mainColor;
+        }
+
+        .nav-link.active:hover {
+            background-color: $mainColor;
+            color: $secondaryColor-dark;
+        }
+
+        a {
+            color: $mainColor;
+            border-radius: 0;
+        }
+
+        a:hover {
+            background-color: $secondaryColor-light;
+        }
+    }
+}
+.account-page-content{
+    color:$darkWhite;
+    padding:30px;
+    padding-top:30px;
+    margin-top:30px;
+    margin-bottom:70px;
+    background-color:$secondaryColor-dark;
+    form{
+        padding-bottom:30px;
+        padding-right:20px;
+        input{
+            border:1.5px solid $mainColor;
+            border-radius:0;
+            background-color:$secondaryColor-light;
+            color:$darkWhite;
+        }
+        .form-control:disabled{
+            color:$darkWhite;
+            background-color:$secondaryColor-dark;
+        }
+    }
+    .btn-primary{
+        margin-top:30px;
+        background-color:$mainColor;
+        color:$secondaryColor-dark;
+        font-weight:700;
+        font-size:larger;
+    }
+}
+.profile-image-container{
+    text-align:center;
+    color:$mainColor;
+    font-size:xx-large;
+    img{
+        max-width:350px;
+        max-height:500px;
+    }
+}

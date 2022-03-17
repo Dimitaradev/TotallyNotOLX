@@ -26,5 +26,9 @@
   {
     "outputFile": "wwwroot/css/Identity/signForm.css",
     "inputFile": "wwwroot/css/Identity/signForm.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Identity/account.css",
+    "inputFile": "wwwroot/css/Identity/account.scss"
   }
 ]

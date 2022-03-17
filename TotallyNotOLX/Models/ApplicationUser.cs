@@ -20,6 +20,10 @@ namespace TotallyNotOLX.Models
         [MaxLength(50)]
         public string LastName { get; set; }
         public string ProfileImage { get; set; }
+        public string Instagram { get; set; }
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Discord { get; set; }
         public IEnumerable<Product> Products { get; set; }
         public IEnumerable<ApplicationUsers_SavedProducts> Saved { get; set; }
     }

@@ -24,7 +24,9 @@ namespace TotallyNotOLX.Areas.Identity.Pages.Account.Manage
         }
 
         public string Username { get; set; }
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ProfileImage { get; set; }
         [TempData]
         public string StatusMessage { get; set; }
 
@@ -36,18 +38,40 @@ namespace TotallyNotOLX.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            [Display(Name = "First name")]
+            public string FirstName { get; set; }
+            [Display(Name = "Last name")]
+            public string LastName { get; set; }
+            [Display(Name = "Profile image")]
+            public string ProfileImage { get; set; }
+            [Display(Name = "Instagram")]
+            public string Instagram { get; set; }
+            [Display(Name = "Facebook")]
+            public string Facebook { get; set; }
+            [Display(Name = "Discord")]
+            public string Discord { get; set; }
+            [Display(Name = "Twitter")]
+            public string Twitter { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
             Username = userName;
-
+            ProfileImage = user.ProfileImage;
+            FirstName = user.FirstName;
+            LastName = user.LastName;
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                ProfileImage = user.ProfileImage,
+                Discord = user.Discord,
+                Instagram = user.Instagram,
+                Facebook = user.Facebook,
+                Twitter = user.Twitter
             };
         }
 
@@ -88,6 +112,89 @@ namespace TotallyNotOLX.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            var firstName = user.FirstName;
+            if (Input.FirstName != firstName)
+            {
+                user.FirstName = Input.FirstName;
+                var setFirstNameResult = await _userManager.UpdateAsync(user);
+                if (!setFirstNameResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set first name.";
+                    return RedirectToPage();
+                }
+            }
+
+            var lastName = user.LastName;
+            if (Input.LastName != lastName)
+            {
+                user.LastName = Input.LastName;
+                var setLastNameResult = await _userManager.UpdateAsync(user);
+                if (!setLastNameResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set last name.";
+                    return RedirectToPage();
+                }
+            }
+
+            var profileImage = user.ProfileImage;
+            if (Input.ProfileImage != profileImage)
+            {
+                user.ProfileImage = Input.ProfileImage;
+                var setProfileImageResult = await _userManager.UpdateAsync(user);
+                if (!setProfileImageResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set profile image.";
+                    return RedirectToPage();
+                }
+            }
+
+            var instagram = user.Instagram;
+            if (Input.Instagram != instagram)
+            {
+                user.Instagram = Input.Instagram;
+                var setInstagramResult = await _userManager.UpdateAsync(user);
+                if (!setInstagramResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set instagram.";
+                    return RedirectToPage();
+                }
+            }
+
+            var discord = user.Discord;
+            if (Input.Discord != discord)
+            {
+                user.Discord = Input.Discord;
+                var setDiscordResult = await _userManager.UpdateAsync(user);
+                if (!setDiscordResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set discord.";
+                    return RedirectToPage();
+                }
+            }
+
+            var facebook = user.Facebook;
+            if (Input.Facebook != facebook)
+            {
+                user.Facebook = Input.Facebook;
+                var setFacebookResult = await _userManager.UpdateAsync(user);
+                if (!setFacebookResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set facebook.";
+                    return RedirectToPage();
+                }
+            }
+
+            var twitter = user.Twitter;
+            if (Input.Twitter != twitter)
+            {
+                user.Twitter = Input.Twitter;
+                var setTwitterResult = await _userManager.UpdateAsync(user);
+                if (!setTwitterResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set twitter.";
+                    return RedirectToPage();
+                }
+            }
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

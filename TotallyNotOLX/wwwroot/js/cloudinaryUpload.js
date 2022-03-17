@@ -1,7 +1,7 @@
 ﻿const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/totallynotolx/image/upload';
 const CLOUDINARY_UPLOAD_PRESET = 'zr4qqust';
 const image = document.querySelector('#fileupload');
-document.getElementById('registerButton').addEventListener('click', (e) => {
+document.getElementById('fakeSubmitButton').addEventListener('click', (e) => {
     e.preventDefault();
     if (image.files.length > 0) {
         const file = image.files[image.files.length - 1];

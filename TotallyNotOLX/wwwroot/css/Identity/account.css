@@ -1,0 +1,47 @@
+﻿#account-sideNav .nav-pills .nav-link.active {
+  background-color: #3E497A;
+  color: #F1D00A; }
+
+#account-sideNav .nav-pills .nav-link.active:hover {
+  background-color: #F1D00A;
+  color: #21325E; }
+
+#account-sideNav .nav-pills a {
+  color: #F1D00A;
+  border-radius: 0; }
+
+#account-sideNav .nav-pills a:hover {
+  background-color: #3E497A; }
+
+.account-page-content {
+  color: #F0F0F0;
+  padding: 30px;
+  padding-top: 30px;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  background-color: #21325E; }
+  .account-page-content form {
+    padding-bottom: 30px;
+    padding-right: 20px; }
+    .account-page-content form input {
+      border: 1.5px solid #F1D00A;
+      border-radius: 0;
+      background-color: #3E497A;
+      color: #F0F0F0; }
+    .account-page-content form .form-control:disabled {
+      color: #F0F0F0;
+      background-color: #21325E; }
+  .account-page-content .btn-primary {
+    margin-top: 30px;
+    background-color: #F1D00A;
+    color: #21325E;
+    font-weight: 700;
+    font-size: larger; }
+
+.profile-image-container {
+  text-align: center;
+  color: #F1D00A;
+  font-size: xx-large; }
+  .profile-image-container img {
+    max-width: 350px;
+    max-height: 500px; }
