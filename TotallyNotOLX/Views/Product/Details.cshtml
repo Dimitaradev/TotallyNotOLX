@@ -1,37 +1,133 @@
-﻿@model Product
+﻿@model ProductDetailsViewModel
 @section heads{
- <link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
 }
- <div class="container">
-     <table>
-         <img src="@Model.ProductImage" alt="Alternate Text" class="center" />
-     </table>
-     <div class="product-details">
-         <h2>@Model.Name</h2>
-         <h2>@Model.Price лв.</h2>
-         <p class="description">@Model.Description</p>
-         <h5 class="seller">@Model.Seller.FirstName @Model.Seller.LastName</h5>
-         <p class="data">@Model.DatePosted</p>
-     </div>
+@{
+    ViewData["Title"] = Model.Product.Name;
+}
+<div class="container product-details-container">
+    <div class="row">
+        <div class="col-12 col-md-4 product-image">
+            <img src="@Model.Product.ProductImage" alt="@Model.Product.DatePosted" />
+            @if (Model.Product.SavedByUser)
+            {
+                <form asp-controller="product" asp-action="RemoveProductFromSaved" asp-route-id="@Model.ProductId" method="post">
+                    <button class="btn btn-block btn-danger" type="submit" aria-label="Remove product from saved">Remove from saved products</button>
+                </form>
+            }
+            else
+            {
+                <form asp-controller="product" asp-action="AddProductToSaved" asp-route-id="@Model.ProductId" method="post">
+                    <button class="btn btn-block btn-success" type="submit" aria-label="Save product">Save product</button>
+                </form>
+            }
+            @if (Model.Product.CreatedByUser)
+            {
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addProductImageModal">
+                    ADD PRODUCT IMAGE
+                </button>
+                <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteProductModal">
+                    REMOVE PRODUCT AD
+                </button>
+            }
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="product-details">
+                <h2>@Model.Product.Name</h2>
+                <h2>@Model.Product.Price лв.</h2>
+                <h5 class="seller">Seller: @Model.Product.Seller.FirstName @Model.Product.Seller.LastName</h5>
+                @if (!string.IsNullOrEmpty(Model.Product.Seller.Email))
+                {
+                    <p><i class="fa-solid fa-envelope"></i> Email: @Model.Product.Seller.Email</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Product.Seller.PhoneNumber))
+                {
+                    <p><i class="fa-solid fa-square-phone"></i> Phone: @Model.Product.Seller.Instagram</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Product.Seller.Instagram))
+                {
+                    <p><i class="fa-brands fa-instagram-square"></i> Instagram: @Model.Product.Seller.Instagram</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Product.Seller.Facebook))
+                {
+                    <p><i class="fa-brands fa-facebook-square"></i> Facebook: @Model.Product.Seller.Facebook</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Product.Seller.Discord))
+                {
+                    <p><i class="fa-brands fa-discord"></i> Discord: @Model.Product.Seller.Discord</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Product.Seller.Twitter))
+                {
+                    <p><i class="fa-brands fa-twitter-square"></i> Twitter: @Model.Product.Seller.Twitter</p>
+                }
+                <p class="data"><i class="fa-solid fa-calendar"></i> Posted: @Model.Product.DatePosted</p>
+            </div>
+        </div>
+    </div>
+    <p class="description">@Model.Product.Description</p>
+    <p><b>Condition:</b> @Model.Product.Condition</p>
+    <p><b>Remarks:</b> @Model.Product.Notes</p>
+    @if (Model.Product.Images != null)
+    {
+        <div class="product-image-gallery">
+            @foreach (var image in Model.Product.Images)
+            {
+                <div class="product-image-gallery-item">
+                    <img src="@image.URL" alt="Couldn't load this image" />
+                    @if (!string.IsNullOrEmpty(image.Description))
+                    {
+                        <h4>@image.Description</h4>
+                    }
 
-
-
-     @if (Model.SavedByUser)
-     {
-         <form asp-controller="product" asp-action="RemoveProductFromSaved" asp-route-id="@Model.Id" method="post">
-             <button class="saved" type="submit" aria-label="Remove product from saved">Remove from saved</button>
-         </form>
-     }
-     else
-     {
-         <form asp-controller="product" asp-action="AddProductToSaved" asp-route-id="@Model.Id" method="post">
-             <button class="details" type="submit" aria-label="Save product">Save</button>
-         </form>
-     }
-     @if (Model.CreatedByUser)
-     {
-         <form asp-controller="product" asp-action="Delete" asp-route-id="@Model.Id" method="post">
-             <button class="details" type="submit" aria-label="Remove product">Remove product</button>
-         </form>
-     }
- </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+@if (Model.Product.CreatedByUser)
+{
+    <div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog" aria-labelledby="deleteProductModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modify-product-modal-content">
+                <form asp-controller="product" asp-action="Delete" asp-route-id="@Model.ProductId" method="post">
+                    <h3 class="text-danger">Are you sure you want to delete this product from TotallyNotOLX? </h3>
+                    <button class="btn btn-danger" type="submit" aria-label="Remove product">Delete</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addProductImageModal" tabindex="-1" role="dialog" aria-labelledby="addProductImageModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modify-product-modal-content">
+                <form asp-action="UploadProductImage" method="post" id="uploadProductImageForm">
+                    <div class="form-group">
+                        <label asp-for="NewProductImage.URL"></label>
+                        <input asp-for="NewProductImage.URL" class="form-control" id="profileImageInputHidden" placeholder="Image URL" />
+                        <span asp-validation-for="NewProductImage.URL" class="text-danger"></span>
+                    </div>
+                    <div class="form-group image-upload-input">
+                        <span> or </span>
+                        <label for="fileupload" class="custom-file-upload">
+                            <i class="fas fa-cloud-upload-alt"></i> Upload image
+                        </label>
+                        <input class="form-control" type="file" id="fileupload" />
+                        <span id="imageValidationText" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewProductImage.Description"></label>
+                        <input asp-for="NewProductImage.Description" class="form-control" />
+                        <span asp-validation-for="NewProductImage.Description" class="text-danger"></span>
+                    </div>
+                    <input asp-for="ProductId" class="form-control" hidden />
+                    <button class="btn btn-success" id="fakeSubmitButton">Add image</button>
+                    <button class="NoLoader btn btn-danger" onclick="clearFormInputs('registerForm')" type="button" id="clearFormButton">Reset</button>
+                    <button type="submit" id="submitButtonHidden" style="visibility:hidden">Add image hidden</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts{
+    <script src="~/js/cloudinaryUpload.js"></script>
+}

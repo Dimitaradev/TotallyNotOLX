@@ -160,6 +160,22 @@ namespace TotallyNotOLX.Controllers
 
         }
 
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        ///<summary>
+        ///This method is used to add image to the product given
+        /// </summary>
+        public IActionResult UploadProductImage(ProductDetailsViewModel model)
+        {
+            if (model.NewProductImage.URL!=null)
+            {
+                model.NewProductImage.Product = _db.Products.Find(model.ProductId);
+                _db.ProductsImages.Add(model.NewProductImage);
+                _db.SaveChanges();
+            }
+            return RedirectToAction("details", new { id = model.ProductId });
+        }
 
         [HttpGet]
         ///<summary>
@@ -204,8 +220,11 @@ namespace TotallyNotOLX.Controllers
                     product.CreatedByUser = true;
                 }
             }
-
-            return View(product);
+            product.Images = _db.ProductsImages.Where(x => x.ProductId == product.Id).ToList();
+            ProductDetailsViewModel data = new ProductDetailsViewModel();
+            data.Product = product;
+            data.ProductId = product.Id;
+            return View(data);
         }
 
         [HttpPost]

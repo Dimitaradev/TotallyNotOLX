@@ -32,7 +32,9 @@ namespace TotallyNotOLX.Models
         public bool SavedByUser { get; set; }
         [NotMapped]
         public bool CreatedByUser { get; set; }
-        public IEnumerable<ProductImage> Images { get; set; }
+        [NotMapped]
+        public ProductImage NewProductImage { get; set; }
+        public List<ProductImage> Images { get; set; }
         public ApplicationUser Seller { get; set; }
         public IEnumerable<ApplicationUsers_SavedProducts> SavedBy { get; set; }
         public Category Category { get; set; }
