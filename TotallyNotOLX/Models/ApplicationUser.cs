@@ -10,6 +10,9 @@ namespace TotallyNotOLX.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        /// <summary>
+        /// The properties of the ApplicationUser table from our database.
+        /// </summary>
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
