@@ -20,7 +20,7 @@
     background-color: transparent;
     border: 1px solid #F1D00A;
     color: #F0F0F0; }
-  .sign-form-container form #registerButton, .sign-form-container form #clearFormButton {
+  .sign-form-container form #fakeSubmitButton, .sign-form-container form #clearFormButton {
     width: 49%;
     font-size: larger;
     font-weight: 700;

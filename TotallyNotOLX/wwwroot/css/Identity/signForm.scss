@@ -32,11 +32,12 @@
             border: 1px solid $mainColor;
             color: $darkWhite;
         }
-        #registerButton, #clearFormButton{
-            width:49%;
-            font-size:larger;
-            font-weight:700;
-            min-width:200px;
+
+        #fakeSubmitButton, #clearFormButton {
+            width: 49%;
+            font-size: larger;
+            font-weight: 700;
+            min-width: 200px;
         }
     }
 
@@ -45,11 +46,13 @@
             border: none;
             padding-left: 0px;
         }
-        label{
-            cursor:pointer;
+
+        label {
+            cursor: pointer;
         }
-        i{
-            color:$mainColor;
+
+        i {
+            color: $mainColor;
         }
     }
 }

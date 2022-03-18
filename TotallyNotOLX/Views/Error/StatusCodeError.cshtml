@@ -1,4 +1,7 @@
 ﻿@model StatusCodeErrorViewModel
+@{
+    ViewData["Title"] = "Error" + Model.ErrorCode;
+}
 <link href="@Url.Content("~/css/Error/errorpage.css")" rel="stylesheet" type="text/css" />
 @if (Model.ErrorCode == "404")
 {
