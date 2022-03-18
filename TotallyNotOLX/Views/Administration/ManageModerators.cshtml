@@ -1,24 +1,32 @@
 ﻿@model ManageModeratorsViewModel
-@if (Model.Users.Count>0)
-{
-    <form asp-action="ManageModerators" method="post">
-    <h2>Add or remove users from researcher role</h2>
-        @for (int i = 0; i < Model.Users.Count; i++)
-        {
-            <div class="form-check m-1">
-                <input type="hidden" asp-for="@Model.Users[i].UserId" />
-                <input type="hidden" asp-for="@Model.Users[i].UserName" />
-                <input asp-for="@Model.Users[i].IsSelected" class="form-check-input" />
-                <label class="form-check-label" asp-for="@Model.Users[i].IsSelected">
-                    @Model.Users[i].UserName
-                </label>
-            </div>
-        }
-    <input type="submit" value="Update" />
-    <a asp-action="Index">Cancel</a>
-    </form> 
+@section heads{
+    <link href="@Url.Content("~/css/Administration/controlPanel.css")" rel="stylesheet" type="text/css" />
 }
-else
-{
-    <h2 class="bg-danger">No users found</h2>
+@{
+    ViewData["Title"] = "Admin panel";
 }
+<div class="container text-container control-panel-container">
+    @if (Model.Users.Count > 0)
+    {
+        <form asp-action="ManageModerators" method="post">
+            <h2>Add or remove users from researcher role</h2>
+            @for (int i = 0; i < Model.Users.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model.Users[i].UserId" />
+                    <input type="hidden" asp-for="@Model.Users[i].UserName" />
+                    <input asp-for="@Model.Users[i].IsSelected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model.Users[i].IsSelected">
+                        @Model.Users[i].UserName
+                    </label>
+                </div>
+            }
+            <input class="btn btn-success" type="submit" value="Add selected users to moderator role" />
+            <a class="btn btn-outline-danger" asp-action="Index">Cancel</a>
+        </form>
+    }
+    else
+    {
+        <h2 class="bg-danger">No users found</h2>
+    }
+</div>

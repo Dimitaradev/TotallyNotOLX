@@ -27,6 +27,9 @@ namespace TotallyNotOLX.Areas.Identity.Pages.Account.Manage
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ProfileImage { get; set; }
+        public bool IsAdmin { get; set; }
+        public bool IsModerator { get; set; }
+
         [TempData]
         public string StatusMessage { get; set; }
 
@@ -62,6 +65,8 @@ namespace TotallyNotOLX.Areas.Identity.Pages.Account.Manage
             ProfileImage = user.ProfileImage;
             FirstName = user.FirstName;
             LastName = user.LastName;
+            IsAdmin = await _userManager.IsInRoleAsync(user, "Administrator");
+            IsModerator = await _userManager.IsInRoleAsync(user, "Moderator");
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,

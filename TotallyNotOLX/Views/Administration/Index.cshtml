@@ -1,5 +1,11 @@
 ﻿@model AdministrationControllerIndexViewModel
-<div class="container">
+@section heads{
+    <link href="@Url.Content("~/css/Administration/controlPanel.css")" rel="stylesheet" type="text/css" />
+}
+@{
+    ViewData["Title"] = "Moderator panel";
+}
+<div class="container text-container control-panel-container">
     @if (Model.Users.Count > 0)
     {
         <form asp-action="DeleteUsers" method="post">
@@ -15,8 +21,8 @@
                     </label>
                 </div>
             }
-            <input type="submit" value="Update" />
-            <a asp-action="Index">Cancel</a>
+            <input type="submit" class="btn btn-danger" value="Delete selected users" />
+            <a asp-action="Index" class="btn btn-primary">Cancel</a>
         </form>
     }
     else
@@ -39,8 +45,8 @@
                     </label>
                 </div>
             }
-            <input type="submit" value="Update" />
-            <a asp-action="Index">Cancel</a>
+            <input type="submit" class="btn btn-danger" value="Delete selected products" />
+            <a asp-action="Index" class="btn btn-primary">Cancel</a>
         </form>
     }
     else

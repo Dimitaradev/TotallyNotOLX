@@ -52,43 +52,4 @@
             color:$mainColor;
         }
     }
-
-    .checkbox {
-        input[type="checkbox"] {
-            height: 0px;
-            width: 0px;
-        }
-
-        label {
-            position: relative;
-        }
-
-        label:before {
-            border: 2px solid $mainColor;
-            background-color: $darkWhite;
-            content: '';
-            width: 30px;
-            height: 30px;
-            display: inline-block;
-            position: relative;
-            z-index: 0;
-        }
-
-        input[type="checkbox"]:checked:before {
-            position: absolute;
-            border: 2px solid $mainColor;
-            background-color: $mainColor;
-            color: $secondaryColor-dark;
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            content: "\f00c";
-            text-align: center;
-            width: 30px;
-            height: 30px;
-            display: inline-block;
-            left: 0;
-            top: 0;
-            z-index: 1;
-        }
-    }
 }

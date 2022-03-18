@@ -34,5 +34,9 @@
   {
     "outputFile": "wwwroot/css/Product/createForm.css",
     "inputFile": "wwwroot/css/Product/createForm.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Administration/controlPanel.css",
+    "inputFile": "wwwroot/css/Administration/controlPanel.scss"
   }
 ]
