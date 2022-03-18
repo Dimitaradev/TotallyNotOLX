@@ -51,3 +51,13 @@ main{
     border-radius:50%;
     object-fit:cover;
 }
+.text-container{
+    background-color: $secondaryColor-dark;
+    color:$darkWhite;
+    padding:30px;
+    h1{
+        color:$mainColor;
+        text-align:center;
+        margin-bottom:15px;
+    }
+}

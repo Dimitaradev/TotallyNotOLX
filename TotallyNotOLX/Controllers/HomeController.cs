@@ -52,16 +52,7 @@ namespace TotallyNotOLX.Controllers
             return View();
         }
 
-        /// <summary>
-        /// Redirects us to the Developers page of our website.
-        /// </summary>
-        public IActionResult Developers()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-
 
         public IActionResult Error()
         {

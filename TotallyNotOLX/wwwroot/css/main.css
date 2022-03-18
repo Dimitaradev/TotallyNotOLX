@@ -44,3 +44,12 @@ main {
   display: inline-block;
   border-radius: 50%;
   object-fit: cover; }
+
+.text-container {
+  background-color: #21325E;
+  color: #F0F0F0;
+  padding: 30px; }
+  .text-container h1 {
+    color: #F1D00A;
+    text-align: center;
+    margin-bottom: 15px; }
