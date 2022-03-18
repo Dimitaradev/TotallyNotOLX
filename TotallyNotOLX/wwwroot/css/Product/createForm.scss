@@ -1,0 +1,30 @@
+﻿@import "../Utilities/_colors.scss";
+.create-product-form-container {
+    background-color: $secondaryColor-dark;
+    padding: 30px;
+
+    form {
+        label {
+            font-size: larger;
+        }
+
+        input {
+            background-color: transparent;
+            border: 1px solid $mainColor;
+            color: $darkWhite;
+        }
+
+        #fakeSubmitButton, #clearFormButton {
+            width: 49%;
+            font-size: larger;
+            font-weight: 700;
+            min-width: 200px;
+        }
+
+        .image-upload-input{
+            label{
+                cursor:pointer;
+            }
+        }
+    }
+}

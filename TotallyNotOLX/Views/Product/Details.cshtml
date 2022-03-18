@@ -34,31 +34,31 @@
         <div class="col-12 col-md-8">
             <div class="product-details">
                 <h2>@Model.Product.Name</h2>
-                <h2>@Model.Product.Price лв.</h2>
-                <h5 class="seller">Seller: @Model.Product.Seller.FirstName @Model.Product.Seller.LastName</h5>
+                <h2><i class="fa-solid fa-money-bill"></i> @Model.Product.Price lv.</h2>
+                <h5 class="seller"><img src="@Model.Product.Seller.ProfileImage" class="small-circle"/>Seller: @Model.Product.Seller.FirstName @Model.Product.Seller.LastName</h5>
                 @if (!string.IsNullOrEmpty(Model.Product.Seller.Email))
                 {
-                    <p><i class="fa-solid fa-envelope"></i> Email: @Model.Product.Seller.Email</p>
+                    <p class="pl-4"><i class="fa-solid fa-envelope"></i> Email: @Model.Product.Seller.Email</p>
                 }
                 @if (!string.IsNullOrEmpty(Model.Product.Seller.PhoneNumber))
                 {
-                    <p><i class="fa-solid fa-square-phone"></i> Phone: @Model.Product.Seller.Instagram</p>
+                    <p class="pl-4"><i class="fa-solid fa-square-phone"></i> Phone: @Model.Product.Seller.Instagram</p>
                 }
                 @if (!string.IsNullOrEmpty(Model.Product.Seller.Instagram))
                 {
-                    <p><i class="fa-brands fa-instagram-square"></i> Instagram: @Model.Product.Seller.Instagram</p>
+                    <p class="pl-4"><i class="fa-brands fa-instagram-square"></i> Instagram: @Model.Product.Seller.Instagram</p>
                 }
                 @if (!string.IsNullOrEmpty(Model.Product.Seller.Facebook))
                 {
-                    <p><i class="fa-brands fa-facebook-square"></i> Facebook: @Model.Product.Seller.Facebook</p>
+                    <p class="pl-4"><i class="fa-brands fa-facebook-square"></i> Facebook: @Model.Product.Seller.Facebook</p>
                 }
                 @if (!string.IsNullOrEmpty(Model.Product.Seller.Discord))
                 {
-                    <p><i class="fa-brands fa-discord"></i> Discord: @Model.Product.Seller.Discord</p>
+                    <p class="pl-4"><i class="fa-brands fa-discord"></i> Discord: @Model.Product.Seller.Discord</p>
                 }
                 @if (!string.IsNullOrEmpty(Model.Product.Seller.Twitter))
                 {
-                    <p><i class="fa-brands fa-twitter-square"></i> Twitter: @Model.Product.Seller.Twitter</p>
+                    <p class="pl-4"><i class="fa-brands fa-twitter-square"></i> Twitter: @Model.Product.Seller.Twitter</p>
                 }
                 <p class="data"><i class="fa-solid fa-calendar"></i> Posted: @Model.Product.DatePosted</p>
             </div>

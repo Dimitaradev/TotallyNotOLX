@@ -233,6 +233,14 @@
     border-left: 1.5px solid $mainColor;
 }
 
+@media only screen and (max-width: 991px) {
+    .middle-borders {
+        border: 0;
+        border-top: 1.5px solid $mainColor;
+        border-bottom: 1.5px solid $mainColor;
+    }
+}
+
 @media only screen and (max-width: 786px) {
     .home-header {
         h1, h2 {
@@ -256,12 +264,20 @@
             margin:0;
         }
     }
-}
-
-@media only screen and (max-width: 991px){
     .middle-borders {
         border: 0;
-        border-top: 1.5px solid $mainColor;
-        border-bottom: 1.5px solid $mainColor;
+    }
+    .services-card-container {
+        .service {
+            margin-top: 40px;
+            text-align: center;
+            padding: 0;
+            height:fit-content;
+            h3{
+                margin:0;
+                margin-top:10px;
+            }
+        }
     }
 }
+

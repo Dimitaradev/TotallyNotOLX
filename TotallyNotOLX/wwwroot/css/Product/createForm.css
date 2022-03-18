@@ -1,0 +1,16 @@
+﻿.create-product-form-container {
+  background-color: #21325E;
+  padding: 30px; }
+  .create-product-form-container form label {
+    font-size: larger; }
+  .create-product-form-container form input {
+    background-color: transparent;
+    border: 1px solid #F1D00A;
+    color: #F0F0F0; }
+  .create-product-form-container form #fakeSubmitButton, .create-product-form-container form #clearFormButton {
+    width: 49%;
+    font-size: larger;
+    font-weight: 700;
+    min-width: 200px; }
+  .create-product-form-container form .image-upload-input label {
+    cursor: pointer; }

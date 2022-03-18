@@ -172,6 +172,12 @@
   border-right: 1.5px solid #F1D00A;
   border-left: 1.5px solid #F1D00A; }
 
+@media only screen and (max-width: 991px) {
+  .middle-borders {
+    border: 0;
+    border-top: 1.5px solid #F1D00A;
+    border-bottom: 1.5px solid #F1D00A; } }
+
 @media only screen and (max-width: 786px) {
   .home-header h1, .home-header h2 {
     max-width: 100vw; }
@@ -183,10 +189,14 @@
   .categories-cards {
     padding: 0; }
     .categories-cards .category-card {
-      margin: 0; } }
-
-@media only screen and (max-width: 991px) {
+      margin: 0; }
   .middle-borders {
-    border: 0;
-    border-top: 1.5px solid #F1D00A;
-    border-bottom: 1.5px solid #F1D00A; } }
+    border: 0; }
+  .services-card-container .service {
+    margin-top: 40px;
+    text-align: center;
+    padding: 0;
+    height: fit-content; }
+    .services-card-container .service h3 {
+      margin: 0;
+      margin-top: 10px; } }

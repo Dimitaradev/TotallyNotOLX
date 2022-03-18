@@ -30,5 +30,9 @@
   {
     "outputFile": "wwwroot/css/Identity/account.css",
     "inputFile": "wwwroot/css/Identity/account.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Product/createForm.css",
+    "inputFile": "wwwroot/css/Product/createForm.scss"
   }
 ]

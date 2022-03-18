@@ -1,8 +1,12 @@
 ﻿@model CreateProductViewModel
 @section heads{
     <link href="@Url.Content("~/css/Product/productpage.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/Product/createForm.css")" rel="stylesheet" type="text/css" />
 }
-<div class="container mb-3 mt-3">
+@{
+    ViewData["Title"] = "Add product";
+}
+<div class="container create-product-form-container mb-3 mt-3">
     <form method="post" asp-action="Create" id="createProductForm">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group text-black">
@@ -64,6 +68,6 @@
         <button type="submit" id="submitButtonHidden" style="visibility:hidden">Create product hidden</button>
     </form>
 </div>
-@section Scripts{ 
+@section Scripts{
     <script src="~/js/cloudinaryUpload.js"></script>
 }
