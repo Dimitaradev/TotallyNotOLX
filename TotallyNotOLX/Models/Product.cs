@@ -19,11 +19,8 @@ namespace TotallyNotOLX.Models
         [Required]
         public string SellerId { get; set; }
         [Required]
-        public bool Sold { get; set; }
-        [Required]
         public string DatePosted { get; set; }
         public decimal Price { get; set; }
-        public bool PriceNegotiable { get; set; }
         public int CategoryId { get; set; }
         public string Condition { get; set; }
         public string Notes { get; set; }
