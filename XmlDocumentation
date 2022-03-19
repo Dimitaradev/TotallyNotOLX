@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TotallyNotOLX</name>
+    </assembly>
+    <members>
+        <member name="M:TotallyNotOLX.Controllers.HomeController.Index">
+            <summary>
+            Direxts us to the home page of the website where we can see the latest products.
+            </summary>
+        </member>
+        <member name="M:TotallyNotOLX.Controllers.HomeController.Privacy">
+            <summary>
+            Redirects us to the privacy page of our website.
+            </summary>
+        </member>
+        <member name="M:TotallyNotOLX.Controllers.HomeController.About">
+            <summary>
+            Redirects us to the About page of our website.
+            </summary>
+        </member>
+        <member name="P:TotallyNotOLX.Models.ApplicationUser.FirstName">
+            <summary>
+            The properties of the ApplicationUser table from our database.
+            </summary>
+        </member>
+        <member name="P:TotallyNotOLX.Models.ApplicationUsers_SavedProducts.ApplicationUserId">
+            <summary>
+            The properties of the ApplicationUsers_SavedProducts table from our database.
+            </summary>
+        </member>
+        <member name="P:TotallyNotOLX.Models.Category.Id">
+            <summary>
+            The properties of the category table from our database.
+            </summary>
+        </member>
+        <member name="P:TotallyNotOLX.Models.Product.Id">
+            <summary>
+            The properties of our Products table from our database. 
+            </summary>
+        </member>
+        <member name="P:TotallyNotOLX.Models.ProductImage.Id">
+            <summary>
+            The properties of ProductImage table of our database.
+            </summary>
+        </member>
+    </members>
+</doc>
