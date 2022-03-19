@@ -27,7 +27,7 @@ namespace TotallyNotOLX.StaticHelpers
                 );
             }
             string json = System.Text.Json.JsonSerializer.Serialize(Searches);
-            File.WriteAllText(@$"./Data/searches.json", json);
+            File.WriteAllText(@$"./wwwroot/searches.json", json);
         }
 
         public static List<string> GetTopSearches(int topCount)
@@ -40,7 +40,7 @@ namespace TotallyNotOLX.StaticHelpers
 
         private static List<SearchCountPair> GetSearches()
         {
-            using (StreamReader r = new StreamReader(@"./Data/searches.json"))
+            using (StreamReader r = new StreamReader(@"./wwwroot/searches.json"))
             {
                 string json = r.ReadToEnd();
                 if (string.IsNullOrEmpty(json))

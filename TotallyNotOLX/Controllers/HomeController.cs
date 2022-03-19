@@ -24,7 +24,7 @@ namespace TotallyNotOLX.Controllers
         }
 
         /// <summary>
-        /// Direxts us to the home page of the website where we can see the latest products.
+        /// Directs us to the home page of the website where we can see the latest products.
         /// </summary>
         public IActionResult Index()
         {

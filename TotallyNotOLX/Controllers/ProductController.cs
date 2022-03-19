@@ -233,10 +233,10 @@ namespace TotallyNotOLX.Controllers
         ///This method add a product with specific id to the leist of products saved by us.
         /// </summary>
         /// <param name="id">The id of the product which we will save</param>
-        public IActionResult AddProductToSaved(int id)
+        public async Task<IActionResult> AddProductToSaved(int id)
         {
             Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
-            ApplicationUser user = _db.Users.Where(x => x.Id == product.SellerId).FirstOrDefault();
+            ApplicationUser user = await _userManager.GetUserAsync(User);
             ApplicationUsers_SavedProducts connection = new ApplicationUsers_SavedProducts() {
                 ApplicationUser = user,
                 Product = product
@@ -252,10 +252,10 @@ namespace TotallyNotOLX.Controllers
         ///This method will remove certain prduct from our list of saved products.
         /// </summary>
         /// <param name="id"> The id of the product which we will removed from saved</param>
-        public IActionResult RemoveProductFromSaved(int id)
+        public async Task<IActionResult> RemoveProductFromSaved(int id)
         {
             Product product = _db.Products.Where(prod => prod.Id == id).FirstOrDefault();
-            ApplicationUser user = _db.Users.Where(x => x.Id == product.SellerId).FirstOrDefault();
+            ApplicationUser user = await _userManager.GetUserAsync(User);
             ApplicationUsers_SavedProducts connection = new ApplicationUsers_SavedProducts()
             {
                 ApplicationUser = user,
