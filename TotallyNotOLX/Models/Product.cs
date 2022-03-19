@@ -24,6 +24,7 @@ namespace TotallyNotOLX.Models
         public int CategoryId { get; set; }
         public string Condition { get; set; }
         public string Notes { get; set; }
+        [Display(Name = "Product image")]
         public string ProductImage { get; set; }
         [NotMapped]
         public bool SavedByUser { get; set; }
